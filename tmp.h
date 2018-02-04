@@ -14,6 +14,8 @@ struct all_same_type<T1, T2, Ts...> : all_same_type<T2, Ts...> {
   using type = T1;
 };
 
+template <typename T> struct all_same_type<T> { using type = T; };
+
 } // namespace cotila
 
 #endif // COTILA_TMP_H_
