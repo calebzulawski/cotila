@@ -49,7 +49,7 @@ constexpr vector<T, N> conj(const vector<T, N> &v) {
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> sqrt(const vector<T, N> &v) {
-  return detail::elementwise_unary(sqrt<T>, v);
+  return detail::elementwise_unary(static_cast<T (*)(T)>(sqrt), v);
 }
 
 template <typename T, std::size_t N>
