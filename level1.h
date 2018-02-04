@@ -16,10 +16,10 @@ constexpr vector<T, N> operator*(T a, const vector<T, N> &v) {
   return v * a;
 }
 
-template <typename Vec>
-constexpr decltype(auto) dot(const Vec &a, const Vec &b) {
-  typename Vec::value_type r = 0;
-  for (int i = 0; i < Vec::size; ++i)
+template <typename T, std::size_t N>
+constexpr T dot(const vector<T, N> &a, const vector<T, N> &b) {
+  T r = 0;
+  for (int i = 0; i < vector<T, N>::size; ++i)
     r += a[i] * b[i];
   return r;
 }
