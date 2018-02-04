@@ -1,9 +1,8 @@
-#include "level1.h"
+#include "level1_test.h"
 #include <iostream>
 
 int main() {
-  constexpr auto v1 = 2 * cotila::make_vector(2, 3, 1) * 2;
-  constexpr cotila::vector<int, 3> v2(2, 3, 3);
-  constexpr int r = dot(v1, v2);
-  std::cout << r << std::endl;
+  std::cout << "This program was built successfully, indicating all static "
+               "unit tests have passed."
+            << std::endl;
 }
