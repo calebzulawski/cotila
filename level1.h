@@ -1,5 +1,5 @@
-#ifndef COTILA_VECVEC_H_
-#define COTILA_VECVEC_H_
+#ifndef COTILA_LEVEL1_H_
+#define COTILA_LEVEL1_H_
 
 #include "vector.h"
 
@@ -26,4 +26,4 @@ constexpr decltype(auto) dot(const Vec &a, const Vec &b) {
 
 } // namespace cotila
 
-#endif // COTILA_VECVEC_H_
+#endif // COTILA_LEVEL1_H_
