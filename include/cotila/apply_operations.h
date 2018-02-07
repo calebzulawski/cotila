@@ -1,7 +1,7 @@
 #ifndef COTILA_APPLY_OPERATIONS_H_
 #define COTILA_APPLY_OPERATIONS_H_
 
-#include "vector.h"
+#include <cotila/vector.h>
 #include <functional>
 #include <tuple>
 #include <type_traits>

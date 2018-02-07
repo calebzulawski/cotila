@@ -1,7 +1,7 @@
 #ifndef COTILA_SCALAR_H_
 #define COTILA_SCALAR_H_
 
-#include "type_traits.h"
+#include <cotila/type_traits.h>
 
 namespace cotila {
 

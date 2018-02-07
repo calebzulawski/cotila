@@ -1,11 +1,11 @@
 #ifndef COTILA_LEVEL1_H_
 #define COTILA_LEVEL1_H_
 
-#include "apply_operations.h"
-#include "scalar.h"
-#include "type_traits.h"
-#include "vector.h"
 #include <algorithm>
+#include <cotila/apply_operations.h>
+#include <cotila/scalar.h>
+#include <cotila/type_traits.h>
+#include <cotila/vector.h>
 #include <functional>
 
 namespace cotila {

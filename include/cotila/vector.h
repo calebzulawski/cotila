@@ -1,8 +1,8 @@
 #ifndef COTILA_VECTOR_H_
 #define COTILA_VECTOR_H_
 
-#include "tmp.h"
 #include <array>
+#include <cotila/tmp.h>
 #include <cstddef>
 
 namespace cotila {

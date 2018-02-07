@@ -1,10 +1,11 @@
 #ifndef COTILA_LEVEL1_TEST_H_
 #define COTILA_LEVEL1_TEST_H_
 
-#include "level1.h"
 #include <complex>
+#include <cotila/level1.h>
 
 namespace cotila {
+namespace test {
 
 using cplxf = std::complex<float>;
 using cplxd = std::complex<double>;
@@ -42,6 +43,7 @@ static_assert(min_index(make_vector(1, 2, 3)) == 0, "min_index");
 
 static_assert(max_index(make_vector(1, 2, 3)) == 2, "max_index");
 
+} // namespace test
 } // namespace cotila
 
 #endif // COTILA_LEVEL1_TEST_H_
