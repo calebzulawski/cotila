@@ -1,3 +1,4 @@
+#include "scalar_test.h"
 #include "level1_test.h"
 #include <iostream>
 
