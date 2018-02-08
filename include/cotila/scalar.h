@@ -2,6 +2,7 @@
 #define COTILA_SCALAR_H_
 
 #include <cotila/type_traits.h>
+#include <type_traits>
 
 namespace cotila {
 
