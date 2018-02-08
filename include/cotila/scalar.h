@@ -33,7 +33,7 @@ constexpr double exponentiate(double x, int n) {
   double y = 1.;
   while (n > 1){
     if (n % 2 == 0) {
-      n /= 2.;
+      n = n/2.;
     }
     else {
       y *= x;
