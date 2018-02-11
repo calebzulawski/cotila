@@ -2,7 +2,7 @@
 #define COTILA_SCALAR_TEST_H_
 
 #include <complex>
-#include <cotila/scalar.h>
+#include <cotila/cotila.h>
 
 namespace cotila {
 

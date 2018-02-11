@@ -1,8 +1,8 @@
-#ifndef COTILA_VECTOR_H_
-#define COTILA_VECTOR_H_
+#ifndef COTILA_VECTOR_VECTOR_H_
+#define COTILA_VECTOR_VECTOR_H_
 
 #include <array>
-#include <cotila/tmp.h>
+#include <cotila/detail/tmp.h>
 #include <cstddef>
 
 namespace cotila {
@@ -30,24 +30,10 @@ protected:
 };
 
 template <typename... Args> constexpr decltype(auto) make_vector(Args... args) {
-  return vector<typename all_same_type<Args...>::type, sizeof...(Args)>(
+  return vector<typename detail::all_same_type<Args...>::type, sizeof...(Args)>(
       args...);
-}
-
-template <typename T, std::size_t N>
-constexpr bool operator==(const vector<T, N> &v1, const vector<T, N> &v2) {
-  for (std::size_t i = 0; i < vector<T, N>::size; ++i) {
-    if (v1[i] != v2[i])
-      return false;
-  }
-  return true;
-}
-
-template <typename T, std::size_t N>
-constexpr bool operator!=(const vector<T, N> &v1, const vector<T, N> &v2) {
-  return !(v1 == v2);
 }
 
 } // namespace cotila
 
-#endif // COTILA_VECTOR_H_
+#endif // COTILA_VECTOR_VECTOR_H_

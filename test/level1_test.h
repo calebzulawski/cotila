@@ -2,7 +2,7 @@
 #define COTILA_LEVEL1_TEST_H_
 
 #include <complex>
-#include <cotila/level1.h>
+#include <cotila/cotila.h>
 
 namespace cotila {
 namespace test {

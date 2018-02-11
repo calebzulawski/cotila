@@ -1,5 +1,5 @@
-#ifndef COTILA_TYPE_TRAITS_H_
-#define COTILA_TYPE_TRAITS_H_
+#ifndef COTILA_DETAIL_TYPE_TRAITS_H_
+#define COTILA_DETAIL_TYPE_TRAITS_H_
 
 #include <complex>
 #include <type_traits>

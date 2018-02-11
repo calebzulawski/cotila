@@ -1,9 +1,10 @@
-#ifndef COTILA_TMP_H_
-#define COTILA_TMP_H_
+#ifndef COTILA_DETAIL_TMP_H_
+#define COTILA_DETAIL_TMP_H_
 
 #include <type_traits>
 
 namespace cotila {
+namespace detail {
 
 template <typename... Ts> struct all_same_type {};
 
@@ -29,6 +30,7 @@ template <typename T, T v> struct all_same_value<T, v> {
   static constexpr T value = v;
 };
 
+} // namespace detail
 } // namespace cotila
 
 #endif // COTILA_TMP_H_

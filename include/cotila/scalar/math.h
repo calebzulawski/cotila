@@ -1,7 +1,7 @@
-#ifndef COTILA_SCALAR_H_
-#define COTILA_SCALAR_H_
+#ifndef COTILA_SCALAR_MATH_H_
+#define COTILA_SCALAR_MATH_H_
 
-#include <cotila/type_traits.h>
+#include <cotila/detail/type_traits.h>
 #include <type_traits>
 
 namespace cotila {
@@ -80,4 +80,4 @@ conj(T x) {
 
 } // namespace cotila
 
-#endif // COTILA_SCALAR_H_
+#endif // COTILA_SCALAR_MATH_H_
