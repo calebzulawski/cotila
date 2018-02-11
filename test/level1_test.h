@@ -43,6 +43,13 @@ static_assert(min_index(make_vector(1, 2, 3)) == 0, "min_index");
 
 static_assert(max_index(make_vector(1, 2, 3)) == 2, "max_index");
 
+static_assert(iota<5>() == make_vector(0ul, 1ul, 2ul, 3ul, 4ul), "iota");
+
+static_assert(cast<int>(iota<5>()) == make_vector(0, 1, 2, 3, 4), "cast");
+
+static_assert(linspace<4ul>(1.f, 4.f) == make_vector(1.f, 2.f, 3.f, 4.f),
+              "linspace");
+
 } // namespace test
 } // namespace cotila
 
