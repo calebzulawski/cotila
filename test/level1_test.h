@@ -53,6 +53,10 @@ static_assert(linspace<4>(1.f, 4.f) == make_vector(1.f, 2.f, 3.f, 4.f),
 
 static_assert(fill<4>(2.) == make_vector(2., 2., 2., 2.), "fill");
 
+static_assert(generate<4>([](auto i) { return double(i * i); }) ==
+                  make_vector(0., 1., 4., 9.),
+              "generate");
+
 } // namespace test
 } // namespace cotila
 
