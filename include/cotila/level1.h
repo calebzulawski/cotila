@@ -135,13 +135,8 @@ template <std::size_t N, typename T> constexpr vector<T, N> fill(T value) {
   return filled;
 }
 
-template <std::size_t N, typename F>
-constexpr auto generate(F &&f)
-    -> vector<std::invoke_result_t<F, std::size_t>, N> {
-  std::array<std::invoke_result_t<F, std::size_t>, N> generated = {};
-  for (std::size_t i = 0; i < N; ++i)
-    generated[i] = std::apply(f, std::forward_as_tuple(i));
-  return generated;
+template <std::size_t N, typename F> constexpr decltype(auto) generate(F &&f) {
+  return detail::elementwise_unary(f, iota<N, std::size_t>());
 }
 
 } // namespace cotila

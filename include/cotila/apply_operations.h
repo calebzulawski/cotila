@@ -9,22 +9,22 @@
 namespace cotila {
 namespace detail {
 
-template <typename F, typename T, std::size_t N, typename... Args>
-constexpr decltype(auto) elementwise_unary(F f, const vector<T, N> &v,
-                                           Args &&... args) {
-  using ret_type = std::invoke_result_t<F, T, Args...>;
-  std::array<ret_type, N> op_applied = {};
+template <typename F, typename T, std::size_t N, typename... Args,
+          typename FnType = std::invoke_result_t<F, T, Args...>>
+constexpr vector<FnType, N> elementwise_unary(F f, const vector<T, N> &v,
+                                              Args &&... args) {
+  std::array<FnType, N> op_applied = {};
   for (std::size_t i = 0; i < N; ++i)
     op_applied[i] = std::apply(f, std::forward_as_tuple(v[i], args...));
   return op_applied;
 }
 
-template <typename F, typename T, std::size_t N, typename... Args>
-constexpr decltype(auto) elementwise_binary(F f, const vector<T, N> &v1,
-                                            const vector<T, N> &v2,
-                                            Args &&... args) {
-  using ret_type = std::invoke_result_t<F, T, T, Args...>;
-  std::array<ret_type, N> op_applied = {};
+template <typename F, typename T, std::size_t N, typename... Args,
+          typename FnType = std::invoke_result_t<F, T, T, Args...>>
+constexpr vector<FnType, N> elementwise_binary(F f, const vector<T, N> &v1,
+                                               const vector<T, N> &v2,
+                                               Args &&... args) {
+  std::array<FnType, N> op_applied = {};
   for (std::size_t i = 0; i < N; ++i)
     op_applied[i] = std::apply(f, std::forward_as_tuple(v1[i], v2[i], args...));
   return op_applied;
