@@ -5,6 +5,7 @@
 #include <cotila/cotila.h>
 
 namespace cotila {
+namespace test {
 
 static_assert(sqrt(625.) == 25, "sqrt");
 
@@ -28,6 +29,7 @@ static_assert(cotila::conj(std::complex(3, 4)) == std::complex(3, -4), "conj");
 
 static_assert(cotila::conj(std::complex(3, -4)) == std::complex(3, 4), "conj");
 
+} // namespace test
 } // namespace cotila
 
 #endif

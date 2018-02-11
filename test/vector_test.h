@@ -1,5 +1,5 @@
-#ifndef COTILA_LEVEL1_TEST_H_
-#define COTILA_LEVEL1_TEST_H_
+#ifndef COTILA_VECTOR_TEST_H_
+#define COTILA_VECTOR_TEST_H_
 
 #include <complex>
 #include <cotila/cotila.h>
@@ -67,4 +67,4 @@ static_assert(generate<4>([](auto i) { return double(i * i); }) ==
 } // namespace test
 } // namespace cotila
 
-#endif // COTILA_LEVEL1_TEST_H_
+#endif // COTILA_VECTOR_TEST_H_

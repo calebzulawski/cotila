@@ -33,4 +33,4 @@ template <typename T, T v> struct all_same_value<T, v> {
 } // namespace detail
 } // namespace cotila
 
-#endif // COTILA_TMP_H_
+#endif // COTILA_DETAIL_TMP_H_

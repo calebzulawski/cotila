@@ -18,4 +18,4 @@ template <typename T> using scalar_type_t = typename scalar_type<T>::type;
 } // namespace detail
 } // namespace cotila
 
-#endif // COTILA_TYPE_TRAITS_H_
+#endif // COTILA_DETAIL_TYPE_TRAITS_H_
