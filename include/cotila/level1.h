@@ -109,6 +109,24 @@ constexpr std::size_t max_index(const vector<T, N> &v) {
   return index;
 }
 
+template <typename T, typename U, std::size_t N>
+constexpr vector<T, N> cast(const vector<U, N> &v) {
+  auto cast_op = [](const U u) { return static_cast<T>(u); };
+  return detail::elementwise_unary(cast_op, v);
+}
+
+template <std::size_t N> constexpr vector<std::size_t, N> iota() {
+  std::array<size_t, N> seq = {};
+  for (int i = 0; i < N; ++i)
+    seq[i] = i;
+  return vector(seq);
+}
+
+template <std::size_t N, typename T>
+constexpr vector<T, N> linspace(T min, T max) {
+  return ((max - min) / (N-1)) * cast<T>(iota<N>()) + min;
+}
+
 } // namespace cotila
 
 #endif // COTILA_LEVEL1_H_
