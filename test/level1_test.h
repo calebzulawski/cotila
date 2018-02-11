@@ -45,6 +45,8 @@ static_assert(max_index(make_vector(1, 2, 3)) == 2, "max_index");
 
 static_assert(iota<5>(0) == make_vector(0, 1, 2, 3, 4), "iota");
 
+static_assert(iota<5, double>() == make_vector(0., 1., 2., 3., 4.), "iota");
+
 static_assert(cast<double>(make_vector(0, 1, 2)) == make_vector(0., 1., 2.),
               "cast");
 

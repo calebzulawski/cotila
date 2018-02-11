@@ -115,16 +115,17 @@ constexpr vector<T, N> cast(const vector<U, N> &v) {
   return detail::elementwise_unary(cast_op, v);
 }
 
-template <std::size_t N, typename T> constexpr vector<T, N> iota(T value) {
+template <std::size_t N, typename T>
+constexpr vector<T, N> iota(T value = T()) {
   std::array<T, N> seq = {};
-  for (std::size_t i = 0; i < N; ++i)
-    seq[i] = value++;
+  for (auto &x : seq)
+    x = value++;
   return seq;
 }
 
 template <std::size_t N, typename T>
 constexpr vector<T, N> linspace(T min, T max) {
-  return ((max - min) / (N - 1)) * iota<N>(T(0)) + min;
+  return ((max - min) / (N - 1)) * iota<N, T>() + min;
 }
 
 template <std::size_t N, typename T> constexpr vector<T, N> fill(T value) {
