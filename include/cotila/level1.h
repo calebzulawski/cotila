@@ -115,16 +115,23 @@ constexpr vector<T, N> cast(const vector<U, N> &v) {
   return detail::elementwise_unary(cast_op, v);
 }
 
-template <std::size_t N> constexpr vector<std::size_t, N> iota() {
-  std::array<size_t, N> seq = {};
-  for (int i = 0; i < N; ++i)
-    seq[i] = i;
-  return vector(seq);
+template <std::size_t N, typename T> constexpr vector<T, N> iota(T value) {
+  std::array<T, N> seq = {};
+  for (std::size_t i = 0; i < N; ++i)
+    seq[i] = value++;
+  return seq;
 }
 
 template <std::size_t N, typename T>
 constexpr vector<T, N> linspace(T min, T max) {
-  return ((max - min) / (N-1)) * cast<T>(iota<N>()) + min;
+  return ((max - min) / (N - 1)) * iota<N>(T(0)) + min;
+}
+
+template <std::size_t N, typename T> constexpr vector<T, N> fill(T value) {
+  std::array<T, N> filled = {};
+  for (auto &x : filled)
+    x = value;
+  return filled;
 }
 
 } // namespace cotila
