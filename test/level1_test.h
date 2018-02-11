@@ -10,6 +10,11 @@ namespace test {
 using cplxf = std::complex<float>;
 using cplxd = std::complex<double>;
 
+static_assert(elementwise([](double x) { return 1 / x; },
+                          make_vector(1., 2., 4.)) ==
+                  make_vector(1., 0.5, 0.25),
+              "elementwise");
+
 static_assert(make_vector(1, 2, 3) == make_vector(1, 2, 3), "operator==");
 
 static_assert(make_vector(1, 2, 3) != make_vector(3, 2, 1), "operator!=");

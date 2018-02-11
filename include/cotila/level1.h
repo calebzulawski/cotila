@@ -2,59 +2,68 @@
 #define COTILA_LEVEL1_H_
 
 #include <algorithm>
-#include <cotila/apply_operations.h>
 #include <cotila/scalar.h>
 #include <cotila/type_traits.h>
 #include <cotila/vector.h>
-#include <functional>
+#include <tuple>
 
 namespace cotila {
 
+template <typename F, typename... Vectors,
+          typename T = std::invoke_result_t<F, typename Vectors::value_type...>,
+          std::size_t N = all_same_value<std::size_t, Vectors::size...>::value>
+constexpr vector<T, N> elementwise(F f, const Vectors &... vectors) {
+  std::array<T, N> op_applied = {};
+  for (std::size_t i = 0; i < N; ++i)
+    op_applied[i] = std::apply(f, std::forward_as_tuple(vectors[i]...));
+  return op_applied;
+}
+
 template <typename T, std::size_t N>
 constexpr vector<T, N> operator+(const vector<T, N> &v, T a) {
-  return detail::elementwise_unary(std::plus<T>(), v, a);
+  return elementwise([a](T x) { return x + a; }, v);
 }
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> operator+(T a, const vector<T, N> &v) {
-  return detail::elementwise_unary(std::plus<T>(), v, a);
+  return elementwise([a](T x) { return a + x; }, v);
 }
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> operator+(const vector<T, N> &v1,
                                  const vector<T, N> &v2) {
-  return detail::elementwise_binary(std::plus<T>(), v1, v2);
+  return elementwise(std::plus<T>(), v1, v2);
 }
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> operator*(const vector<T, N> &v, T a) {
-  return detail::elementwise_unary(std::multiplies<T>(), v, a);
+  return elementwise([a](T x) { return x * a; }, v);
 }
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> operator*(T a, const vector<T, N> &v) {
-  return detail::elementwise_unary(std::multiplies<T>(), v, a);
+  return elementwise([a](T x) { return a * x; }, v);
 }
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> operator*(const vector<T, N> &v1,
                                  const vector<T, N> &v2) {
-  return detail::elementwise_binary(std::multiplies<T>(), v1, v2);
+  return elementwise(std::multiplies<T>(), v1, v2);
 }
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> conj(const vector<T, N> &v) {
-  return detail::elementwise_unary(conj<T>, v);
+  return elementwise(conj<T>, v);
 }
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> sqrt(const vector<T, N> &v) {
-  return detail::elementwise_unary(static_cast<T (*)(T)>(sqrt), v);
+  return elementwise(static_cast<T (*)(T)>(sqrt), v);
 }
 
 template <typename T, std::size_t N>
 constexpr vector<detail::scalar_type_t<T>, N> abs(const vector<T, N> &v) {
-  return detail::elementwise_unary(abs<T>, v);
+  return elementwise(abs<T>, v);
 }
 
 template <typename T, std::size_t N, typename F, typename U>
@@ -111,8 +120,7 @@ constexpr std::size_t max_index(const vector<T, N> &v) {
 
 template <typename T, typename U, std::size_t N>
 constexpr vector<T, N> cast(const vector<U, N> &v) {
-  auto cast_op = [](const U u) { return static_cast<T>(u); };
-  return detail::elementwise_unary(cast_op, v);
+  return elementwise([](const U u) { return static_cast<T>(u); }, v);
 }
 
 template <std::size_t N, typename T>
@@ -136,7 +144,7 @@ template <std::size_t N, typename T> constexpr vector<T, N> fill(T value) {
 }
 
 template <std::size_t N, typename F> constexpr decltype(auto) generate(F &&f) {
-  return detail::elementwise_unary(f, iota<N, std::size_t>());
+  return elementwise(f, iota<N, std::size_t>());
 }
 
 } // namespace cotila
