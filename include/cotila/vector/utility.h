@@ -56,6 +56,27 @@ template <std::size_t N, typename F> constexpr decltype(auto) generate(F &&f) {
   return elementwise(f, iota<N, std::size_t>());
 }
 
+template <std::size_t N, typename T>
+constexpr vector<T, N> rotate(vector<T, N> vec, int amt) {
+  std::array<T, N> rotated = {};
+  // add N (the modulus) to amt until it is positive
+  while (amt < 0)
+    amt += N;
+  for (std::size_t i = 0; i < N; ++i)
+    rotated[i] = vec[(i + amt) % N];
+  return rotated;
+}
+
+template <std::size_t M, typename T, std::size_t N>
+constexpr vector<T, M> slice(vector<T, N> vec, std::size_t start = 0) {
+
+  std::array<T, M> sliced = {};
+  for (std::size_t i = 0; i < M; ++i)
+      sliced[i] = vec[i + start];
+
+  return sliced;
+}
+
 } // namespace cotila
 
 #endif // COTILA_VECTOR_UTILITY_H_
