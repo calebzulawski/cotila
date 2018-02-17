@@ -15,10 +15,10 @@ static_assert(m1.row(2) == make_vector(7., 8., 9.), "matrix row");
 
 static_assert(m1.column(2) == make_vector(3., 6., 9.), "matrix column");
 
-// static_assert(cast<float>(m1) == matrix<float, 3, 3>{{1.f, 2.f, 3.f},
-//                                                      {4.f, 5.f, 6.f},
-//                                                      {7.f, 8.f, 9.f}},
-//               "matrix cast");
+static_assert(cast<float>(m1) ==
+                  matrix<float, 3, 3>{
+                      {{1.f, 2.f, 3.f}, {4.f, 5.f, 6.f}, {7.f, 8.f, 9.f}}},
+              "matrix cast");
 
 static_assert(fill<2, 2>(3.) == matrix<double, 2, 2>{{{3., 3}, {3., 3.}}},
               "matrix fill");
