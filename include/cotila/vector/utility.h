@@ -6,14 +6,16 @@
 
 namespace cotila {
 
-template <typename F, typename... Vectors,
-          typename T = std::invoke_result_t<F, typename Vectors::value_type...>,
-          std::size_t N =
-              detail::all_same_value<std::size_t, Vectors::size...>::value>
-constexpr vector<T, N> elementwise(F f, const Vectors &... vectors) {
-  std::array<T, N> op_applied = {};
+template <
+    typename F, typename T, typename... Vectors,
+    typename U = std::invoke_result_t<F, T, typename Vectors::value_type...>,
+    std::size_t N =
+        detail::all_same_value<std::size_t, Vectors::size...>::value>
+constexpr vector<U, N> elementwise(F f, const vector<T, N> &v,
+                                   const Vectors &... vectors) {
+  std::array<U, N> op_applied = {};
   for (std::size_t i = 0; i < N; ++i)
-    op_applied[i] = std::apply(f, std::forward_as_tuple(vectors[i]...));
+    op_applied[i] = std::apply(f, std::forward_as_tuple(v[i], vectors[i]...));
   return op_applied;
 }
 
