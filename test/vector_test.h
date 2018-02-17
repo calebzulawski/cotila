@@ -74,6 +74,8 @@ static_assert(make_vector(1, 2, 3) == slice<3>(make_vector(1, 2, 3, 4)),
 static_assert(make_vector(2, 3, 4) == slice<3>(make_vector(1, 2, 3, 4), 1),
               "slice with offset");
 
+static_assert(make_vector(1,2,3,4) == concat(make_vector(1,2), make_vector(3,4)), "concat");
+
 } // namespace test
 } // namespace cotila
 

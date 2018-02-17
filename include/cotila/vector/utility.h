@@ -77,6 +77,16 @@ constexpr vector<T, M> slice(vector<T, N> vec, std::size_t start = 0) {
   return sliced;
 }
 
+template <typename T, std::size_t N, std::size_t M>
+constexpr vector<T, N + M> concat(vector<T, N> vec1, vector<T, M> vec2) {
+  std::array<T, N + M> concatted = {};
+  for (std::size_t i = 0; i < N; ++i)
+    concatted[i] = vec1[i];
+  for (std::size_t i = 0; i < M; ++i)
+    concatted[i + N] = vec2[i];
+  return concatted;
+}
+
 } // namespace cotila
 
 #endif // COTILA_VECTOR_UTILITY_H_
