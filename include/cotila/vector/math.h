@@ -26,7 +26,7 @@ template <typename T, std::size_t N>
 constexpr T dot(const vector<T, N> &a, const vector<T, N> &b) {
   T r = 0;
   for (std::size_t i = 0; i < vector<T, N>::size; ++i)
-    r += a[i] * b[i];
+    r += a[i] * conj(b[i]);
   return r;
 }
 
