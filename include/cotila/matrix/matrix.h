@@ -11,7 +11,7 @@ namespace cotila {
 template <typename T, std::size_t N, std::size_t M> class matrix {
 public:
   static_assert(N != 0 && M != 0,
-                "matrix must have not have positive dimensions");
+                "matrix must have have positive dimensions");
   using value_type = T;
   using size_type = std::size_t;
   using array_type = std::array<T, N>;
