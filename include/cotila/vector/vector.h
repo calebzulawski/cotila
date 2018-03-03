@@ -13,25 +13,22 @@ public:
 
   using value_type = T;
   using size_type = std::size_t;
-  using array_type = std::array<T, N>;
   static constexpr size_type size = N;
 
-  template <typename... Args>
-  explicit constexpr vector(Args... args) : array{args...} {}
-
-  constexpr vector(std::array<T, N> array) : array(array) {}
-
+  constexpr T &operator[](size_type i) noexcept { return array[i]; }
   constexpr const T &operator[](size_type i) const noexcept { return array[i]; }
 
-  constexpr const array_type &to_array() const noexcept { return array; }
+  constexpr T *begin() noexcept { return array; }
+  constexpr T *end() noexcept { return array + N; }
+  constexpr const T *cbegin() const noexcept { return array; }
+  constexpr const T *cend() const noexcept { return array + N; }
 
-protected:
-  std::array<T, N> array;
+  T array[N];
 };
 
 template <typename... Args> constexpr decltype(auto) make_vector(Args... args) {
-  return vector<typename detail::all_same_type<Args...>::type, sizeof...(Args)>(
-      args...);
+  return vector<typename detail::all_same_type<Args...>::type, sizeof...(Args)>{
+      args...};
 }
 
 } // namespace cotila

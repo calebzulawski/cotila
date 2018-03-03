@@ -13,7 +13,7 @@ template <
         detail::all_same_value<std::size_t, Vectors::size...>::value>
 constexpr vector<U, N> elementwise(F f, const vector<T, N> &v,
                                    const Vectors &... vectors) {
-  std::array<U, N> op_applied = {};
+  vector<U, N> op_applied = {};
   for (std::size_t i = 0; i < N; ++i)
     op_applied[i] = std::apply(f, std::forward_as_tuple(v[i], vectors[i]...));
   return op_applied;
@@ -34,7 +34,7 @@ constexpr vector<T, N> cast(const vector<U, N> &v) {
 
 template <std::size_t N, typename T>
 constexpr vector<T, N> iota(T value = T()) {
-  std::array<T, N> seq = {};
+  vector<T, N> seq = {};
   for (auto &x : seq)
     x = value++;
   return seq;
@@ -46,7 +46,7 @@ constexpr vector<T, N> linspace(T min, T max) {
 }
 
 template <std::size_t N, typename T> constexpr vector<T, N> fill(T value) {
-  std::array<T, N> filled = {};
+  vector<T, N> filled = {};
   for (auto &x : filled)
     x = value;
   return filled;
@@ -58,7 +58,7 @@ template <std::size_t N, typename F> constexpr decltype(auto) generate(F &&f) {
 
 template <std::size_t N, typename T>
 constexpr vector<T, N> rotate(vector<T, N> vec, int amt) {
-  std::array<T, N> rotated = {};
+  vector<T, N> rotated = {};
   // add N (the modulus) to amt until it is positive
   while (amt < 0)
     amt += N;
@@ -70,7 +70,7 @@ constexpr vector<T, N> rotate(vector<T, N> vec, int amt) {
 template <std::size_t M, typename T, std::size_t N>
 constexpr vector<T, M> slice(vector<T, N> vec, std::size_t start = 0) {
 
-  std::array<T, M> sliced = {};
+  vector<T, M> sliced = {};
   for (std::size_t i = 0; i < M; ++i)
       sliced[i] = vec[i + start];
 
@@ -79,7 +79,7 @@ constexpr vector<T, M> slice(vector<T, N> vec, std::size_t start = 0) {
 
 template <typename T, std::size_t N, std::size_t M>
 constexpr vector<T, N + M> concat(vector<T, N> vec1, vector<T, M> vec2) {
-  std::array<T, N + M> concatted = {};
+  vector<T, N + M> concatted = {};
   for (std::size_t i = 0; i < N; ++i)
     concatted[i] = vec1[i];
   for (std::size_t i = 0; i < M; ++i)
