@@ -1,16 +1,32 @@
 language: cpp
-sudo: true
+sudo: false
 services:
   - docker
 matrix:
   include:
     - os: linux
       env:
-        - MATRIX_IMAGE="gcc:7.3.0"
+        - MATRIX_IMAGE="calebzulawski/cotila-base"
+        - MATRIX_CMD="/usr/bin/make clean && /usr/bin/make test"
     - os: linux
       env:
-        - MATRIX_IMAGE="purplekarrot/clang-5.0"
+        - MATRIX_IMAGE="calebzulawski/cotila-clang"
+        - MATRIX_CMD="/usr/bin/make clean && /usr/bin/make test"
+    - os: linux
+      env:
+        - MATRIX_IMAGE="calebzulawski/cotila-docs"
+        - MATRIX_CMD="/usr/bin/make clean && /usr/bin/make doc"
+        - MATRIX_DEPLOY="1"
 before_install:
     - docker pull ${MATRIX_IMAGE}
 script:
-    - docker run --rm -v $(pwd):/opt/cotila -w /opt/cotila --entrypoint "" ${MATRIX_IMAGE} /bin/bash -c '/usr/bin/make clean && /usr/bin/make test'
+    - docker run -a stdout -a stderr --rm -v $(pwd):/opt/cotila -w /opt/cotila --entrypoint "" ${MATRIX_IMAGE} /bin/bash -c "$MATRIX_CMD"
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: doc/html/
+  on:
+    branch: master
+    condition: $MATRIX_DEPLOY
