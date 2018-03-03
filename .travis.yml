@@ -1,25 +1,16 @@
 language: cpp
-script: make
+sudo: true
+services:
+  - docker
 matrix:
   include:
     - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-7
       env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        - MATRIX_IMAGE="gcc:7.3.0"
     - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-5.0
-          packages:
-            - clang-5.0 libstdc++-7-dev
       env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+        - MATRIX_IMAGE="purplekarrot/clang-5.0"
 before_install:
-    - eval "${MATRIX_EVAL}"
+    - docker pull ${MATRIX_IMAGE}
+script:
+    - docker run --rm -v $(pwd):/opt/cotila -w /opt/cotila --entrypoint "" ${MATRIX_IMAGE} /bin/bash -c '/usr/bin/make clean && /usr/bin/make test'
