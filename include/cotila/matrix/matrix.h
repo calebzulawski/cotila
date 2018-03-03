@@ -14,7 +14,6 @@ public:
                 "matrix must have have positive dimensions");
   using value_type = T;
   using size_type = std::size_t;
-  using array_type = std::array<T, N>;
   static constexpr size_type column_size = N;
   static constexpr size_type row_size = M;
 
@@ -32,8 +31,6 @@ public:
 
   constexpr T *operator[](std::size_t i) { return arrays[i]; }
   constexpr T const *operator[](std::size_t i) const { return arrays[i]; }
-
-  constexpr std::array<std::array<T, M>, N> &to_arrays() { return arrays; }
 
   T arrays[N][M];
 };
