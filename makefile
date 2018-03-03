@@ -1,11 +1,11 @@
-.PHONY: test clean
+.PHONY: test docs clean
 
 test:
 	make -C test test
 
-doc:
+docs:
 	doxygen
 
 clean:
 	make -C test clean
-	rm -rf doc
+	rm -rf docs
