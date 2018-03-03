@@ -2,6 +2,8 @@
 #define COTILA_MATRIX_MATH_H_
 
 #include <cotila/matrix/matrix.h>
+#include <cotila/vector/vector.h>
+#include <cotila/vector/math.h>
 
 namespace cotila {
 
@@ -14,6 +16,18 @@ constexpr matrix<T, N, M> transpose(const matrix<T, N, M> &m) {
     }
   }
   return transposed;
+}
+
+template <typename T, std::size_t M, std::size_t N, std::size_t P>
+constexpr matrix<T, N, M> matmul(const matrix<T, M, N> &m1,
+                                 const matrix<T, N, P> &m2) {
+  matrix<T, N, M> matmul = {};
+  for (std::size_t i = 0; i < M; ++i) {
+    for (std::size_t j = 0; j < P; ++j) {
+      matmul[i][j] = cotila::dot(m1.row(i), cotila::conj(m2.column(j)));
+    }
+  }
+  return matmul;
 }
 
 } // namespace cotila
