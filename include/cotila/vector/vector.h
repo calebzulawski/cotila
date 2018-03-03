@@ -7,8 +7,7 @@
 
 namespace cotila {
 
-template <typename T, std::size_t N> class vector {
-public:
+template <typename T, std::size_t N> struct vector {
   static_assert(N != 0, "vector must contain at least one element");
 
   using value_type = T;

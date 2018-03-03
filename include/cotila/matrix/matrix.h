@@ -8,8 +8,7 @@
 
 namespace cotila {
 
-template <typename T, std::size_t N, std::size_t M> class matrix {
-public:
+template <typename T, std::size_t N, std::size_t M> struct matrix {
   static_assert(N != 0 && M != 0,
                 "matrix must have have positive dimensions");
   using value_type = T;
