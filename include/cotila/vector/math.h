@@ -4,12 +4,13 @@
 #include <cotila/detail/type_traits.h>
 #include <cotila/vector/utility.h>
 #include <cotila/vector/vector.h>
+#include <cotila/scalar/math.h>
 
 namespace cotila {
 
 template <typename T, std::size_t N>
 constexpr vector<T, N> conj(const vector<T, N> &v) {
-  return elementwise(conj<T>, v);
+  return elementwise(cotila::conj<T>, v);
 }
 
 template <typename T, std::size_t N>

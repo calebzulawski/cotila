@@ -7,7 +7,9 @@ namespace cotila {
 namespace test {
 
 constexpr matrix<double, 3, 3> m1 = {
-    {{1., 2., 3.}, {4., 5., 6.}, {7., 8., 9.}}};
+    {{1., 2., 3.}, 
+     {4., 5., 6.}, 
+     {7., 8., 9.}}};
 
 static_assert(m1[0][2] == 3, "matrix[]");
 
@@ -27,6 +29,13 @@ static_assert(transpose(m1) ==
                   matrix<double, 3, 3>{
                       {{1., 4., 7.}, {2., 5., 8.}, {3., 6., 9.}}},
               "transpose");
+
+static_assert(matmul(m1,m1) ==
+                  matrix<double, 3, 3>{
+                      {{30., 36., 42.}, 
+                       {66., 81., 96.}, 
+                       {102., 126., 150.}}},
+              "real matrix multiply");
 
 } // namespace test
 } // namespace cotila
