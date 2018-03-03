@@ -1,11 +1,17 @@
 #ifndef COTILA_MATRIX_MATH_H_
 #define COTILA_MATRIX_MATH_H_
 
+#include <cotila/scalar/math.h>
 #include <cotila/matrix/matrix.h>
 #include <cotila/vector/vector.h>
 #include <cotila/vector/math.h>
 
 namespace cotila {
+
+template <typename T, std::size_t M, std::size_t N>
+constexpr matrix<T, N, M> conj(const matrix<T, N, M> &m) {
+  return elementwise(cotila::conj<T>, m);
+}
 
 template <typename T, std::size_t M, std::size_t N>
 constexpr matrix<T, N, M> transpose(const matrix<T, N, M> &m) {
@@ -16,6 +22,11 @@ constexpr matrix<T, N, M> transpose(const matrix<T, N, M> &m) {
     }
   }
   return transposed;
+}
+
+template <typename T, std::size_t M, std::size_t N>
+constexpr matrix<T, N, M> hermitian(const matrix<T, N, M> &m) {
+  return transpose(conj(m));
 }
 
 template <typename T, std::size_t M, std::size_t N, std::size_t P>

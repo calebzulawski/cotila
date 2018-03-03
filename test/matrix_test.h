@@ -1,6 +1,7 @@
 #ifndef COTILA_MATRIX_TEST_H_
 #define COTILA_MATRIX_TEST_H_
 
+#include <complex>
 #include <cotila/cotila.h>
 
 namespace cotila {
@@ -10,6 +11,11 @@ constexpr matrix<double, 3, 3> m1 = {
     {{1., 2., 3.}, 
      {4., 5., 6.}, 
      {7., 8., 9.}}};
+
+constexpr matrix<std::complex<double>, 3, 3> m1c = {
+    {{{1., 1.}, {2., 0.}, {3., 0.}},
+     {{4., 1.}, {5., 0.}, {6., 0.}},
+     {{7., 1.}, {8., 0.}, {9., 0.}}}};
 
 static_assert(m1[0][2] == 3, "matrix[]");
 
@@ -29,6 +35,20 @@ static_assert(transpose(m1) ==
                   matrix<double, 3, 3>{
                       {{1., 4., 7.}, {2., 5., 8.}, {3., 6., 9.}}},
               "transpose");
+
+static_assert(hermitian(m1) ==
+                  matrix<double, 3, 3>{
+                      {{1., 4., 7.}, 
+                       {2., 5., 8.}, 
+                       {3., 6., 9.}}},
+              "herm-real");
+
+static_assert(hermitian(m1c) ==
+                  matrix<std::complex<double>, 3, 3>{
+                      {{{1., -1}, {4., -1.}, {7., -1.}},
+                       {{2., 0.}, {5., 0.}, {8., 0.}},
+                       {{3., 0.}, {6., 0.}, {9., 0.}}}},
+              "herm-complex");
 
 static_assert(matmul(m1,m1) ==
                   matrix<double, 3, 3>{
