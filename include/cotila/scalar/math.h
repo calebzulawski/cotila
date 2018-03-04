@@ -1,3 +1,7 @@
+/** @file
+ *  Mathematical operations on scalar and complex values
+ */
+
 #ifndef COTILA_SCALAR_MATH_H_
 #define COTILA_SCALAR_MATH_H_
 
@@ -6,6 +10,12 @@
 
 namespace cotila {
 
+/** @brief computes the square root
+ *  @param x argument
+ *  @return square root of `x`
+ *
+ *  Computes the square root. 
+ */
 constexpr double sqrt(double x) {
   if (x < 0)
     throw "sqrt argument must be positive";
@@ -18,14 +28,32 @@ constexpr double sqrt(double x) {
   return est;
 }
 
+/** @brief computes the square root
+ *  @param x argument
+ *  @return square root of `x`
+ *
+ *  Computes the square root. 
+ */
 constexpr float sqrt(float x) { return sqrt(double(x)); }
 
+/** @brief computes the absolute value
+ *  @param x argument
+ *  @return \f$ \lvert x \rvert \f$
+ *
+ *  Computes the absolute value.
+ */
 template <typename T>
 constexpr typename std::enable_if<!detail::is_complex<T>::value, T>::type
 abs(T x) {
   return x > 0 ? x : -x;
 }
 
+/** @brief computes the absolute value
+ *  @param x argument
+ *  @return \f$ \lvert x \rvert \f$
+ *
+ *  Computes the absolute value.
+ */
 template <typename T>
 constexpr typename std::enable_if<detail::is_complex<T>::value,
                                   typename T::value_type>::type
@@ -33,6 +61,13 @@ abs(T x) {
   return sqrt(x.real() * x.real() + x.imag() * x.imag());
 }
 
+/** @brief computes exponents
+ *  @param x base
+ *  @param n exponent
+ *  @return \f$ x^n \f$
+ *
+ *  Computes the exponentiation of a value to integer powers.
+ */
 constexpr double exponentiate(double x, int n) {
   if (n == 0)
     return 1;
@@ -53,6 +88,13 @@ constexpr double exponentiate(double x, int n) {
   return x * y;
 }
 
+/** @brief computes the \f$n\f$th root
+ *  @param x argument
+ *  @param n degree
+ *  @return \f$ \sqrt[\leftroot{-2}\uproot{2}n]{x} \f$
+ *
+ *  Computes the \f$n\f$th root.
+ */
 constexpr double nthroot(double x, int n) {
   if (x < 0)
     throw "nth root argument must be positive";
@@ -66,12 +108,24 @@ constexpr double nthroot(double x, int n) {
   return est;
 }
 
+/** @brief computes the complex conjugate
+ *  @param x argument
+ *  @return \f$ x^* \f$
+ *
+ *  Computes the complex conjugate.
+ */
 template <typename T>
 constexpr typename std::enable_if<!detail::is_complex<T>::value, T>::type
 conj(T x) {
   return x;
 }
 
+/** @brief computes the complex conjugate
+ *  @param x argument
+ *  @return \f$ x^* \f$
+ *
+ *  Computes the complex conjugate.
+ */
 template <typename T>
 constexpr typename std::enable_if<detail::is_complex<T>::value, T>::type
 conj(T x) {
