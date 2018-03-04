@@ -13,7 +13,7 @@ namespace cotila {
 
 /** @brief computes the elementwise complex conjugate
  *  @param m an \f$ M \times N \f$ matrix of type T
- *  @return an \f$ M \times N \f$ matrix \f$\overline{\textbf{m}}\f$ such that
+ *  @return an \f$ M \times N \f$ matrix \f$\overline{\textbf{m}}\f$ of type T such that
  *  \f$ \left(\overline{\textbf{m}}\right)_{ij} = \overline{\textbf{m}_{ij}},\ \forall i,j \f$
  *
  *  Computes the elementwise complex conjugate of a matrix
@@ -25,7 +25,7 @@ constexpr matrix<T, M, N> conj(const matrix<T, M, N> &m) {
 
 /** @brief computes the transpose
  *  @param m an \f$ M \times N \f$ matrix of type T
- *  @return an \f$ N \times M \f$ matrix \f$ \textbf{m}^{\mathrm{T}} \f$ such that
+ *  @return an \f$ N \times M \f$ matrix \f$ \textbf{m}^{\mathrm{T}} \f$ of type T such that
  *  \f$ \left(\textbf{m}^{\mathrm{T}}\right)_{ij} = \textbf{m}_{ji},\ \forall i,j \f$
  *
  *  Computes the matrix transpose.
@@ -43,7 +43,7 @@ constexpr matrix<T, N, M> transpose(const matrix<T, M, N> &m) {
 
 /** @brief computes the Hermitian transpose
  *  @param m an \f$ M \times N \f$ matrix of type T
- *  @return an \f$ N \times M \f$ matrix \f$ \textbf{m}^{*} \f$ such that
+ *  @return an \f$ N \times M \f$ matrix \f$ \textbf{m}^{*} \f$ of type T such that
  *  \f$ \left(\textbf{m}^{*}\right)_{ij} = \overline{\textbf{m}_{ji}},\ \forall i,j \f$
  *
  *  Computes the Hermitian (conjugate) transpose.
@@ -56,7 +56,7 @@ constexpr matrix<T, N, M> hermitian(const matrix<T, M, N> &m) {
 /** @brief computes the matrix product
  *  @param a an \f$M \times N\f$ matrix
  *  @param b an \f$N \times P\f$ matrix
- *  @return an \f$ M \times P \f$ matrix \f$ \textbf{a}\textbf{b} \f$ such that
+ *  @return an \f$ M \times P \f$ matrix \f$ \textbf{a}\textbf{b} \f$ of type T such that
  *  \f$ \left(\textbf{ab}\right)_{ij} = \sum\limits_{k=1}^{N}\textbf{a}_{ik}\textbf{b}_{kj} \f$
  *
  *  Computes the product of two matrices.
