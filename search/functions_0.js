@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['begin',['begin',['../structcotila_1_1vector_abf3a0e72186a81d8b95a01d770af425a.html#abf3a0e72186a81d8b95a01d770af425a',1,'cotila::vector']]]
+  ['abs',['abs',['../scalar_2math_8h_a39a84d83686d47472d9bccbcb543341d.html#a39a84d83686d47472d9bccbcb543341d',1,'cotila::abs(T x)'],['../scalar_2math_8h_af823d66606fbf52482dc8fe5cf5dea5b.html#af823d66606fbf52482dc8fe5cf5dea5b',1,'cotila::abs(T x)']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['end',['end',['../structcotila_1_1vector_ad9aece269a2a8c6266075a4d39026fbe.html#ad9aece269a2a8c6266075a4d39026fbe',1,'cotila::vector']]]
+  ['decltype',['decltype',['../structcotila_1_1vector_a8e2f2bc322c85e7a55b1efda9cc18caf.html#a8e2f2bc322c85e7a55b1efda9cc18caf',1,'cotila::vector']]]
 ];
