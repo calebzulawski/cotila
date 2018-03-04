@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::hermitian</title>
+<title>Cotila: cotila::matmul</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,30 +78,42 @@ $(function() {
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="file_a45edc36155bf82699b4dcf6805a4c331"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#file_a45edc36155bf82699b4dcf6805a4c331">&#9670;&nbsp;</a></span>hermitian()</h2>
+<a id="file_a6eb9e8956f4d05343a13dce92b683dd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a6eb9e8956f4d05343a13dce92b683dd7">&#9670;&nbsp;</a></span>matmul()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
+template&lt;typename T , std::size_t M, std::size_t N, std::size_t P&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">constexpr matrix&lt;T, N, M&gt; cotila::hermitian </td>
+          <td class="memname">constexpr matrix&lt;T, M, P&gt; cotila::matmul </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, N, M &gt; &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, N, P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Perform a hermitian transpose. </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>an \(N \times M\) matrix of type T. </td></tr>
+    <tr><td class="paramname">a</td><td>an \(M \times N\) matrix </td></tr>
+    <tr><td class="paramname">b</td><td>an \(N \times P\) matrix </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>\(\textbf{m}^{\mathrm{H}}\), the conjugate transpose of \(\textbf{m}\). \(\textbf{m}^{\mathrm{H}}_{ij} = \textbf{m}^{*}_{ji}\) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>an \( M \times P \) matrix \( \textbf{a}\textbf{b} \) such that \( \left(\textbf{ab}\right)_{ij} = \sum\limits_{k=1}^{N}\textbf{a}_{ik}\textbf{b}_{kj} \)</dd></dl>
+<p>Computes the product of two matrices. </p>
 
 </div>
 </div>
