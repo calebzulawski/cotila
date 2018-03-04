@@ -1,5 +1,5 @@
 /** @file
- *  Mathematical operations on scalar and complex values
+ *  @brief Mathematical operations on scalar values
  */
 
 #ifndef COTILA_SCALAR_MATH_H_
@@ -12,7 +12,7 @@ namespace cotila {
 
 /** @brief computes the square root
  *  @param x argument
- *  @return square root of `x`
+ *  @return \f$ \sqrt{x} \f$
  *
  *  Computes the square root. 
  */
@@ -30,7 +30,7 @@ constexpr double sqrt(double x) {
 
 /** @brief computes the square root
  *  @param x argument
- *  @return square root of `x`
+ *  @return \f$ \sqrt{x} \f$
  *
  *  Computes the square root. 
  */
@@ -110,7 +110,7 @@ constexpr double nthroot(double x, int n) {
 
 /** @brief computes the complex conjugate
  *  @param x argument
- *  @return \f$ x^* \f$
+ *  @return \f$ \bar{x} \f$
  *
  *  Computes the complex conjugate.
  */
@@ -122,7 +122,7 @@ conj(T x) {
 
 /** @brief computes the complex conjugate
  *  @param x argument
- *  @return \f$ x^* \f$
+ *  @return \f$ \bar{x} \f$
  *
  *  Computes the complex conjugate.
  */

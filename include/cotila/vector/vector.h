@@ -1,5 +1,5 @@
 /** @file
- *  Contains the definition of the `cotila::vector` class.
+ *  @brief Contains the definition of the `cotila::vector` class.
  */
 
 #ifndef COTILA_VECTOR_VECTOR_H_

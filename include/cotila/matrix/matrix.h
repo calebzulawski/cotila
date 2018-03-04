@@ -1,5 +1,5 @@
 /** @file
- *  Contains the definition of the `cotila::matrix` class.
+ *  @brief Contains the definition of the `cotila::matrix` class.
  */
 
 #ifndef COTILA_MATRIX_MATRIX_H_
