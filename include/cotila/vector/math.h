@@ -42,7 +42,7 @@ constexpr vector<T, N> sqrt(const vector<T, N> &v) {
  *  Computes the elementwise absolute value of a vector.
  */
 template <typename T, std::size_t N>
-constexpr vector<detail::scalar_type_t<T>, N> abs(const vector<T, N> &v) {
+constexpr vector<detail::remove_complex_t<T>, N> abs(const vector<T, N> &v) {
   return elementwise(abs<T>, v);
 }
 

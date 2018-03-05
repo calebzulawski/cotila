@@ -9,11 +9,11 @@ namespace detail {
 
 template <typename T> struct is_complex : std::false_type {};
 template <typename T> struct is_complex<std::complex<T>> : std::true_type {};
-template <typename T> using is_complex_v = typename is_complex<T>::value;
+template <typename T> constexpr bool is_complex_v = is_complex<T>::value;
 
-template <typename T> struct scalar_type { using type = T; };
-template <typename T> struct scalar_type<std::complex<T>> { using type = T; };
-template <typename T> using scalar_type_t = typename scalar_type<T>::type;
+template <typename T> struct remove_complex { using type = T; };
+template <typename T> struct remove_complex<std::complex<T>> { using type = T; };
+template <typename T> using remove_complex_t = typename remove_complex<T>::type;
 
 } // namespace detail
 } // namespace cotila

@@ -43,22 +43,11 @@ constexpr float sqrt(float x) { return sqrt(double(x)); }
  *  Computes the absolute value.
  */
 template <typename T>
-constexpr typename std::enable_if<!detail::is_complex<T>::value, T>::type
-abs(T x) {
-  return x > 0 ? x : -x;
-}
-
-/** @brief computes the absolute value
- *  @param x argument
- *  @return \f$ \lvert x \rvert \f$
- *
- *  Computes the absolute value.
- */
-template <typename T>
-constexpr typename std::enable_if<detail::is_complex<T>::value,
-                                  typename T::value_type>::type
-abs(T x) {
-  return sqrt(x.real() * x.real() + x.imag() * x.imag());
+constexpr detail::remove_complex_t<T> abs(T x) {
+  if constexpr (detail::is_complex_v<T>)
+    return sqrt(x.real() * x.real() + x.imag() * x.imag());
+  else
+    return x > 0 ? x : -x;
 }
 
 /** @brief computes exponents
@@ -115,22 +104,13 @@ constexpr double nthroot(double x, int n) {
  *  Computes the complex conjugate.
  */
 template <typename T>
-constexpr typename std::enable_if<!detail::is_complex<T>::value, T>::type
-conj(T x) {
-  return x;
+constexpr T conj(T x) {
+  if constexpr (detail::is_complex_v<T>)
+    return {x.real(), -x.imag()};
+  else
+    return x;
 }
 
-/** @brief computes the complex conjugate
- *  @param x argument
- *  @return \f$ \bar{x} \f$
- *
- *  Computes the complex conjugate.
- */
-template <typename T>
-constexpr typename std::enable_if<detail::is_complex<T>::value, T>::type
-conj(T x) {
-  return {x.real(), -x.imag()};
-}
 
 } // namespace cotila
 
