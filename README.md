@@ -4,6 +4,8 @@
 
 Copyright 2018 Caleb Zulawski
 
+Licensed under the Apache License, Version 2.0
+
 ## Overview
 
 Cotila (**co**mpile-**ti**me **l**inear **a**lgebra) provides a set of linear algebra functions in C++ intended for use during compile time. 
