@@ -35,7 +35,7 @@ constexpr decltype(auto) generate(F &&f) {
   matrix<std::invoke_result_t<F, std::size_t, std::size_t>, N, M> generated =
       {};
   for (std::size_t i = 0; i < N; ++i) {
-    for (std::size_t j = 0; j < N; ++j) {
+    for (std::size_t j = 0; j < M; ++j) {
       generated[i][j] = std::apply(f, std::forward_as_tuple(i, j));
     }
   }
