@@ -5,9 +5,10 @@
 #define COTILA_MATRIX_MATH_H_
 
 #include <cotila/scalar/math.h>
-#include <cotila/matrix/matrix.h>
 #include <cotila/vector/vector.h>
 #include <cotila/vector/math.h>
+#include <cotila/matrix/matrix.h>
+#include <cotila/matrix/utility.h>
 
 namespace cotila {
 
@@ -32,13 +33,7 @@ constexpr matrix<T, M, N> conj(const matrix<T, M, N> &m) {
  */
 template <typename T, std::size_t M, std::size_t N>
 constexpr matrix<T, N, M> transpose(const matrix<T, M, N> &m) {
-  matrix<T, N, M> transposed = {};
-  for (std::size_t i = 0; i < M; ++i) {
-    for (std::size_t j = 0; j < N; ++j) {
-      transposed[j][i] = m[i][j];
-    }
-  }
-  return transposed;
+  return generate<N, M>([&m](auto i, auto j){return m[j][i];});
 }
 
 /** @brief computes the Hermitian transpose
@@ -64,13 +59,7 @@ constexpr matrix<T, N, M> hermitian(const matrix<T, M, N> &m) {
 template <typename T, std::size_t M, std::size_t N, std::size_t P>
 constexpr matrix<T, M, P> matmul(const matrix<T, M, N> &a,
                                  const matrix<T, N, P> &b) {
-  matrix<T, M, P> matmul = {};
-  for (std::size_t i = 0; i < M; ++i) {
-    for (std::size_t j = 0; j < P; ++j) {
-      matmul[i][j] = cotila::sum(a.row(i)*b.column(j));
-    }
-  }
-  return matmul;
+  return generate<M, P>([&a, &b](auto i, auto j){return cotila::sum(a.row(i)*b.column(j));});
 }
 
 } // namespace cotila
