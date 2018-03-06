@@ -12,6 +12,8 @@ constexpr matrix<double, 3, 3> m1 = {
      {4., 5., 6.}, 
      {7., 8., 9.}}};
 
+constexpr matrix<double, 1, 2> m2 = {{{1.,2.}}};
+
 constexpr matrix<std::complex<double>, 3, 3> m1c = {
     {{{1., 1.}, {2., 0.}, {3., 0.}},
      {{4., 1.}, {5., 0.}, {6., 0.}},
@@ -71,12 +73,17 @@ static_assert(identity<std::complex<double>, 3> ==
                        {0., 0., 1.}}},
               "complex identity");
 
-static_assert(repmat<3, 2>(matrix<double, 1, 2>{{{1., 2.}}}) ==
+static_assert(repmat<3, 2>(m2) ==
                   matrix<double, 3, 4>{
                       {{1., 2., 1., 2.},
                        {1., 2., 1., 2.},
                        {1., 2., 1., 2.}}},
               "repmat");
+
+
+static_assert(kron(m2, m2) ==
+                matrix<double, 1, 4>{{{1., 2., 2., 4.}}}, 
+              "kron");
 
 } // namespace test
 } // namespace cotila

@@ -62,6 +62,22 @@ constexpr matrix<T, M, P> matmul(const matrix<T, M, N> &a,
   return generate<M, P>([&a, &b](auto i, auto j){return cotila::sum(a.row(i)*b.column(j));});
 }
 
+/** @brief Computes the kronecker tensor product
+ *  @param a an \f$M \times N\f$ matrix
+ *  @param b an \f$P \times Q\f$ matrix
+ *  @return An \f$ MP \times NQ \f$ matrix \f$ \textbf{A}\otimes\textbf{B} \f$ of type T such that
+ *  \f$ \left(\textbf{AB}\right)_{ij} = a_{\lfloor i/P \rfloor,\lfloor j/Q \rfloor}b_{i\%P,j\%Q} \f$
+ *  where \f$ i \% P \f$ is the remainder of \f$ i/P \f$ 
+ *
+ * Computes the kronecker tensor product of two matrices.
+ */
+template <typename T, std::size_t M, std::size_t N, 
+                      std::size_t P, std::size_t Q>
+constexpr matrix<T, M * P, N * Q> kron(const matrix<T, M, N> &a,
+                                       const matrix<T, P, Q> &b) {
+  return generate<M * P, N * Q>([&a, &b](auto i, auto j) { return a[i / P][j / Q] * b[i % P][j % Q]; });
+}
+
 } // namespace cotila
 
 #endif // COTILA_MATRIX_MATH_H_
