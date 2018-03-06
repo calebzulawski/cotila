@@ -57,6 +57,27 @@ static_assert(matmul(m1,m1) ==
                        {102., 126., 150.}}},
               "real matrix multiply");
 
+static_assert(identity<double, 3> ==
+                  matrix<double, 3, 3>{
+                      {{1., 0., 0.},
+                       {0., 1., 0.},
+                       {0., 0., 1.}}},
+              "identity");
+
+static_assert(identity<std::complex<double>, 3> ==
+                  matrix<std::complex<double>, 3, 3>{
+                      {{1., 0., 0.},
+                       {0., 1., 0.},
+                       {0., 0., 1.}}},
+              "complex identity");
+
+static_assert(repmat<3, 2>(matrix<double, 1, 2>{{{1., 2.}}}) ==
+                  matrix<double, 3, 4>{
+                      {{1., 2., 1., 2.},
+                       {1., 2., 1., 2.},
+                       {1., 2., 1., 2.}}},
+              "repmat");
+
 } // namespace test
 } // namespace cotila
 

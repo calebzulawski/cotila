@@ -47,6 +47,17 @@ constexpr matrix<T, N, M> fill(T value) {
   return generate<N, M>([value](std::size_t, std::size_t) { return value; });
 }
 
+template <typename T, std::size_t N>
+constexpr matrix<T, N, N> identity
+  = generate<N, N>([](std::size_t i, std::size_t j) { return T(i == j ? 1 : 0); });
+
+template <std::size_t Row, std::size_t Col, std::size_t M, std::size_t N, typename T>
+constexpr matrix<T, M * Row, N * Col> repmat(const matrix<T, M, N> &m) {
+  return generate<M * Row, N * Col>([&m](std::size_t i, std::size_t j) {
+    return m[i % M][j % N];
+  });
+}
+
 } // namespace cotila
 
 #endif // COTILA_MATRIX_UTILITY_H_
