@@ -96,6 +96,14 @@ static_assert(inverse(m22) ==
                  {-2.,  1.}}},
               "inverse");
 
+static_assert(matmul(inverse(m22), matrix<double, 2, 1>{{{1.},{1.}}}) == 
+                matrix<double, 2, 1>{{{4.}, {-1.}}},
+                "A^-1*b = x");
+
+static_assert(gauss_elim(m22, matrix<double, 2, 1>{{{1.},{1.}}}) == 
+                matrix<double, 2, 1>{{{4.}, {-1.}}},
+                "gaussian elimination/equation solving");
+
 } // namespace test
 } // namespace cotila
 

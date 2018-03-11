@@ -52,7 +52,7 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
   constexpr vector<T, N> column(std::size_t i) const {
     if (i >= M)
       throw "index out of range";
-    return generate<M>([i, this](std::size_t j) { return arrays[j][i]; });
+    return generate<N>([i, this](std::size_t j) { return arrays[j][i]; });
   }
 
   /** @brief access specified element
