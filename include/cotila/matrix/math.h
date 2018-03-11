@@ -4,6 +4,8 @@
 #ifndef COTILA_MATRIX_MATH_H_
 #define COTILA_MATRIX_MATH_H_
 
+#include<algorithm>
+
 #include <cotila/scalar/math.h>
 #include <cotila/vector/vector.h>
 #include <cotila/vector/math.h>
@@ -76,6 +78,47 @@ template <typename T, std::size_t M, std::size_t N,
 constexpr matrix<T, M * P, N * Q> kron(const matrix<T, M, N> &a,
                                        const matrix<T, P, Q> &b) {
   return generate<M * P, N * Q>([&a, &b](auto i, auto j) { return a[i / P][j / Q] * b[i % P][j % Q]; });
+}
+
+/** @brief computes the matrix inverse 
+ *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @return The inverse of \f$ \textbf{M} \f$, \f$ \textbf{M}^{-1}\f$ such that 
+ *  \f$ \textbf{M}\textbf{M}^{-1} == \textbf{M}^{-1}\textbf{M} == \textbf{I}_{M} \f$
+ *
+ *  Computes the inverse of a matrix..
+ */
+template <typename T, std::size_t M>
+constexpr matrix<T, M, M> inverse(const matrix<T, M, M> &m) {
+  matrix<T, M, M> inv = identity<T, M>;
+  auto A = m;
+
+  for (std::size_t k = 0; k < M; ++k) {
+    // first normalize the row
+    auto scale_A = A[k][k];
+    if (scale_A == 0)
+      throw "Matrix is not invertible";
+
+    for (std::size_t j = 0; j < M; ++j) {
+      inv[k][j] = inv[k][j] / scale_A;
+      A[k][j] = A[k][j] / scale_A;
+    }
+    auto pivot_A = A.row(k);
+    auto pivot_I = inv.row(k);
+
+
+    for (std::size_t i = 0; i < M; ++i) {
+      if (i != k) {
+        // pivot should be normalized to 1 already
+        auto row_to_subtract_A = pivot_A * A[i][k];
+        auto row_to_subtract_I = pivot_I * A[i][k];
+        for (std::size_t j = 0; j < M; ++j) {
+          inv[i][j] = inv[i][j] - row_to_subtract_I[j];
+          A[i][j] = A[i][j] - row_to_subtract_A[j];
+        }
+      }
+    }
+  }
+  return inv;
 }
 
 } // namespace cotila

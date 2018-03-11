@@ -58,6 +58,30 @@ constexpr matrix<T, M * Row, N * Col> repmat(const matrix<T, M, N> &m) {
   });
 }
 
+template <std::size_t M, std::size_t N, typename T>
+constexpr matrix<T, M, N> swaprow(const matrix<T, M, N> &m, std::size_t row1, std::size_t row2){
+    auto A = m;
+    for (int i = 0; i < N; i++)
+    {
+        T tmp = A[row1][i];
+        A[row1][i] = A[row2][i];
+        A[row2][i] = tmp;
+    }
+    return A;
+}
+
+template <std::size_t M, std::size_t N, typename T>
+constexpr matrix<T, M, N> swapcol(const matrix<T, M, N> &m, std::size_t col1, std::size_t col2){
+    auto A = m;
+    for (int i = 0; i < N; i++)
+    {
+        T tmp = A[i][col1];
+        A[i][col1] = A[i][col2];
+        A[i][col2] = tmp;
+    }
+    return A;
+}
+
 } // namespace cotila
 
 #endif // COTILA_MATRIX_UTILITY_H_

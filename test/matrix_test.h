@@ -14,6 +14,10 @@ constexpr matrix<double, 3, 3> m1 = {
 
 constexpr matrix<double, 1, 2> m2 = {{{1.,2.}}};
 
+constexpr matrix<double, 2, 2> m22 = {
+    {{1., 3.},
+     {2., 7.}}};
+
 constexpr matrix<std::complex<double>, 3, 3> m1c = {
     {{{1., 1.}, {2., 0.}, {3., 0.}},
      {{4., 1.}, {5., 0.}, {6., 0.}},
@@ -80,10 +84,17 @@ static_assert(repmat<3, 2>(m2) ==
                        {1., 2., 1., 2.}}},
               "repmat");
 
-
 static_assert(kron(m2, m2) ==
                 matrix<double, 1, 4>{{{1., 2., 2., 4.}}}, 
               "kron");
+
+static_assert(identity<double, 3> == inverse(identity<double, 3>), "inverse-identity");
+
+static_assert(inverse(m22) == 
+                matrix<double, 2, 2>{
+                {{ 7., -3.}, 
+                 {-2.,  1.}}},
+              "inverse");
 
 } // namespace test
 } // namespace cotila
