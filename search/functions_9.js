@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['operator_5b_5d',['operator[]',['../structcotila_1_1matrix_a24504a5cfda19b15c2d8a740c35025fe.html#a24504a5cfda19b15c2d8a740c35025fe',1,'cotila::matrix::operator[](std::size_t i)'],['../structcotila_1_1matrix_aea462b93d2281ddee78b815055e67a8c.html#aea462b93d2281ddee78b815055e67a8c',1,'cotila::matrix::operator[](std::size_t i) const'],['../structcotila_1_1vector_a0216a96304931174d3ace844ffb078a4.html#a0216a96304931174d3ace844ffb078a4',1,'cotila::vector::operator[](size_type i) noexcept'],['../structcotila_1_1vector_a7f18c2333643bed9b4eb6ac2e974c82b.html#a7f18c2333643bed9b4eb6ac2e974c82b',1,'cotila::vector::operator[](size_type i) const noexcept']]]
+  ['make_5fvector',['make_vector',['../vector_8h_ac452c3a573cf52217aa806c08897e95e.html#ac452c3a573cf52217aa806c08897e95e',1,'cotila']]],
+  ['matmul',['matmul',['../matrix_2math_8h_a6eb9e8956f4d05343a13dce92b683dd7.html#a6eb9e8956f4d05343a13dce92b683dd7',1,'cotila']]],
+  ['max',['max',['../vector_2math_8h_ad3bd316dd4b7c7786ef58009139896e9.html#ad3bd316dd4b7c7786ef58009139896e9',1,'cotila']]],
+  ['max_5findex',['max_index',['../vector_2math_8h_a056159624800a1a9a5e33e1c630a4801.html#a056159624800a1a9a5e33e1c630a4801',1,'cotila']]],
+  ['min',['min',['../vector_2math_8h_a0197f1a272159e2cd4ddb7adb0ef19bf.html#a0197f1a272159e2cd4ddb7adb0ef19bf',1,'cotila']]],
+  ['min_5findex',['min_index',['../vector_2math_8h_aba2193d78f3dfb9c364bf625762b8bf5.html#aba2193d78f3dfb9c364bf625762b8bf5',1,'cotila']]]
 ];

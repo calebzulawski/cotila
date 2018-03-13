@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nthroot',['nthroot',['../scalar_2math_8h_ac8ceb77471ee2fc8f32aa6b33bf79043.html#ac8ceb77471ee2fc8f32aa6b33bf79043',1,'cotila']]]
+  ['kron',['kron',['../matrix_2math_8h_accf0857734a68e25f3bf745afe97ab3a.html#accf0857734a68e25f3bf745afe97ab3a',1,'cotila']]]
 ];

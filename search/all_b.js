@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['size',['size',['../structcotila_1_1vector.html#a90b3c86b9a7849d73b2228bc6beea4fe',1,'cotila::vector']]],
-  ['sqrt',['sqrt',['../scalar_2math_8h_aa24df75a14fbdb9e1477a53992839d04.html#aa24df75a14fbdb9e1477a53992839d04',1,'cotila::sqrt(double x)'],['../scalar_2math_8h_a5a37786a20b3de7ce12abfc3d66f2e6d.html#a5a37786a20b3de7ce12abfc3d66f2e6d',1,'cotila::sqrt(float x)'],['../vector_2math_8h_a72049c529001b554f95a56a6eb0574e5.html#a72049c529001b554f95a56a6eb0574e5',1,'cotila::sqrt(const vector&lt; T, N &gt; &amp;v)']]],
-  ['sum',['sum',['../vector_2math_8h_a224567edf43938c4e74fd3f9cb684df8.html#a224567edf43938c4e74fd3f9cb684df8',1,'cotila']]]
+  ['operator_5b_5d',['operator[]',['../structcotila_1_1matrix_a24504a5cfda19b15c2d8a740c35025fe.html#a24504a5cfda19b15c2d8a740c35025fe',1,'cotila::matrix::operator[](std::size_t i)'],['../structcotila_1_1matrix_aea462b93d2281ddee78b815055e67a8c.html#aea462b93d2281ddee78b815055e67a8c',1,'cotila::matrix::operator[](std::size_t i) const'],['../structcotila_1_1vector_a0216a96304931174d3ace844ffb078a4.html#a0216a96304931174d3ace844ffb078a4',1,'cotila::vector::operator[](size_type i) noexcept'],['../structcotila_1_1vector_a7f18c2333643bed9b4eb6ac2e974c82b.html#a7f18c2333643bed9b4eb6ac2e974c82b',1,'cotila::vector::operator[](size_type i) const noexcept']]]
 ];

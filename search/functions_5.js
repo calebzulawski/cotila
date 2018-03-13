@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hermitian',['hermitian',['../matrix_2math_8h_aac5d4dca1915e7395204182f11cdd4c9.html#aac5d4dca1915e7395204182f11cdd4c9',1,'cotila']]]
+  ['gauss_5felim',['gauss_elim',['../matrix_2math_8h_a774accf275d58fc7ee03a01ff6912473.html#a774accf275d58fc7ee03a01ff6912473',1,'cotila']]]
 ];
