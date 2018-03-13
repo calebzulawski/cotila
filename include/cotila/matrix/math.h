@@ -4,6 +4,8 @@
 #ifndef COTILA_MATRIX_MATH_H_
 #define COTILA_MATRIX_MATH_H_
 
+#include<algorithm>
+
 #include <cotila/scalar/math.h>
 #include <cotila/vector/vector.h>
 #include <cotila/vector/math.h>
@@ -76,6 +78,60 @@ template <typename T, std::size_t M, std::size_t N,
 constexpr matrix<T, M * P, N * Q> kron(const matrix<T, M, N> &a,
                                        const matrix<T, P, Q> &b) {
   return generate<M * P, N * Q>([&a, &b](auto i, auto j) { return a[i / P][j / Q] * b[i % P][j % Q]; });
+}
+
+/** @brief Perform Gaussian Elimination
+ *  @param a an \f$ M \times M \f$ matrix of type T
+ *  @param adj A \f$ M \times N \f$ matrix 
+ *  @return b, A \f$ M \times N \f$ matrix x that solves the equation
+ *  \f$ \textbf{A}\textbf{x} = \textbf{b} \f$.
+ *
+ *  Perform Gaussian elimination.
+ */
+template <typename T, std::size_t M, std::size_t N>
+constexpr matrix<T, M, N> gauss_elim(matrix<T, M, M> a,
+                                     matrix<T, M, N> adj) {
+  for (std::size_t k = 0; k < M; ++k) {
+    // first normalize the row
+    auto scale_A = a[k][k];
+    if (scale_A == 0)
+      throw "Matrix on left hand side is not invertible";
+
+    for (std::size_t j = 0; j < N; ++j) {
+      adj[k][j] = adj[k][j] / scale_A;
+      a[k][j] = a[k][j] / scale_A;
+    }
+    auto pivot_A = a.row(k);
+    auto pivot_adj = adj.row(k);
+
+    for (std::size_t i = 0; i < M; ++i) {
+      if (i != k) {
+        // pivot should be normalized to 1 already
+        auto row_to_subtract_A = pivot_A * a[i][k];
+        auto row_to_subtract_adj = pivot_adj * a[i][k];
+        for (std::size_t j = 0; j < M; ++j) {
+          a[i][j] = a[i][j] - row_to_subtract_A[j];
+        }
+        for (std::size_t j = 0; j < N; ++j) {
+          adj[i][j] = adj[i][j] - row_to_subtract_adj[j];
+        }
+      }
+    }
+  }
+  return adj;
+}
+
+/** @brief computes the matrix inverse
+ *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @return The inverse of \f$ \textbf{M} \f$, \f$ \textbf{M}^{-1}\f$ such that
+ *  \f$ \textbf{M}\textbf{M}^{-1} == \textbf{M}^{-1}\textbf{M} == \textbf{I}_{M}
+ * \f$
+ *
+ *  Computes the inverse of a matrix..
+ */
+template <typename T, std::size_t M>
+constexpr matrix<T, M, M> inverse(const matrix<T, M, M> &m) {
+  return gauss_elim(m, identity<T, M>);
 }
 
 } // namespace cotila

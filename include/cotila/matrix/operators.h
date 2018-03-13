@@ -55,6 +55,17 @@ constexpr matrix<T, N, M> operator*(const matrix<T, N, M> &m1,
   return elementwise(std::multiplies<T>(), m1, m2);
 }
 
+template <typename T, std::size_t N, std::size_t M>
+constexpr matrix<T, N, M> operator/(T a, const matrix<T, N, M> &v) {
+  return elementwise([a](T x) { return a / x; }, v);
+}
+
+template <typename T, std::size_t N, std::size_t M>
+constexpr matrix<T, N, M> operator/(const matrix<T, N, M> &m1,
+                                    const matrix<T, N, M> &m2) {
+  return elementwise(std::divides<T>(), m1, m2);
+}
+
 } // namespace cotila
 
 #endif // COTILA_VECTOR_OPERATORS_H_
