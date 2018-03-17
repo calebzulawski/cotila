@@ -104,6 +104,13 @@ static_assert(gauss_elim(m22, matrix<double, 2, 1>{{{1.},{1.}}}) ==
                 matrix<double, 2, 1>{{{4.}, {-1.}}},
                 "gaussian elimination/equation solving");
 
+static_assert(vandermonde<4>(make_vector(1., 2., 3.)) == 
+            matrix<double, 3, 4>{
+                {{1., 1., 1.,  1.},
+                 {1., 2., 4.,  8.},
+                 {1., 3., 9., 27.}}},
+            "vandermonde");
+
 } // namespace test
 } // namespace cotila
 

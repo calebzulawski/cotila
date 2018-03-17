@@ -134,6 +134,21 @@ constexpr matrix<T, M, M> inverse(const matrix<T, M, M> &m) {
   return gauss_elim(m, identity<T, M>);
 }
 
+/** @brief computes the Vandermonde matrix
+ *  @param alphas Length M vector used to define the geometric progression.
+ *  @return \f$ V \f$, the \f$ M\ times N\f$ Vandermonde matrix such that 
+ *  \f$ \left(V\right)_{i,j} = \alpha^{j}_{i}\f$.
+ *
+ *  Compute the Vandermonde matrix. Can be used generating basis polynomials,
+ *  a DFT matrix, BCH codes, some Reed-Solomon error correction codes.
+*/
+template <std::size_t N, std::size_t M, typename T>
+constexpr matrix<T, M, N> vandermonde(const vector<T, M> &alphas) {
+  return generate<M, N>([&alphas](std::size_t i, std::size_t j) {
+    return exponentiate(alphas[i], j);
+  });
+}
+
 } // namespace cotila
 
 #endif // COTILA_MATRIX_MATH_H_
