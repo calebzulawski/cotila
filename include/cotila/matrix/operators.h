@@ -5,6 +5,10 @@
 
 namespace cotila {
 
+/** \addtogroup matrix
+ *  @{
+ */
+
 template <typename T, std::size_t N, std::size_t M>
 constexpr bool operator==(const matrix<T, N, M> &m1,
                           const matrix<T, N, M> &m2) {
@@ -65,6 +69,8 @@ constexpr matrix<T, N, M> operator/(const matrix<T, N, M> &m1,
                                     const matrix<T, N, M> &m2) {
   return elementwise(std::divides<T>(), m1, m2);
 }
+
+/** }@*/
 
 } // namespace cotila
 

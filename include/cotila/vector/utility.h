@@ -6,6 +6,10 @@
 
 namespace cotila {
 
+/** \addtogroup vector
+ *  @{
+ */
+
 template <
     typename F, typename T, typename... Vectors,
     typename U = std::invoke_result_t<F, T, typename Vectors::value_type...>,
@@ -86,6 +90,8 @@ constexpr vector<T, N + M> concat(vector<T, N> vec1, vector<T, M> vec2) {
     concatted[i + N] = vec2[i];
   return concatted;
 }
+
+/** }@*/
 
 } // namespace cotila
 

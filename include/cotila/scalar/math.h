@@ -10,6 +10,10 @@
 
 namespace cotila {
 
+/** \addtogroup scalar
+ *  @{
+ */
+
 /** @brief computes the square root
  *  @param x argument
  *  @return \f$ \sqrt{x} \f$
@@ -111,6 +115,7 @@ constexpr T conj(T x) {
     return x;
 }
 
+/** @}*/
 
 } // namespace cotila
 

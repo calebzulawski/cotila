@@ -14,6 +14,10 @@
 
 namespace cotila {
 
+/** \addtogroup matrix
+ *  @{
+ */
+
 /** @brief computes the elementwise complex conjugate
  *  @param m an \f$ M \times N \f$ matrix of type T
  *  @return an \f$ M \times N \f$ matrix \f$\overline{\textbf{m}}\f$ of type T such that
@@ -145,6 +149,8 @@ template <typename T, std::size_t M>
 constexpr T trace(const matrix<T, M, M> &m) {
   return sum(generate<M>([&m](std::size_t i){ return m[i][i]; }));
 }
+
+/** }@*/
 
 } // namespace cotila
 

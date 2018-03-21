@@ -67,6 +67,10 @@ template <typename T, std::size_t N> struct vector {
   T array[N]; ///< @private
 };
 
+/** \addtogroup vector
+ *  @{
+ */
+
 /** @brief constructs a `cotila::vector` from arguments
  *  @param args scalar elements to combine into a vector
  *  @return a vector containing `args`
@@ -79,6 +83,8 @@ template <typename... Args> constexpr decltype(auto) make_vector(Args... args) {
   return vector<typename detail::all_same_type<Args...>::type, sizeof...(Args)>{
       args...};
 }
+
+/** @}*/
 
 } // namespace cotila
 

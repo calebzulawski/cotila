@@ -5,6 +5,10 @@
 
 namespace cotila {
 
+/** \addtogroup vector
+ *  @{
+ */
+
 template <typename T, std::size_t N>
 constexpr bool operator==(const vector<T, N> &v1, const vector<T, N> &v2) {
   for (std::size_t i = 0; i < vector<T, N>::size; ++i) {
@@ -61,6 +65,8 @@ constexpr vector<T, N> operator/(const vector<T, N> &v1,
                                  const vector<T, N> &v2) {
   return elementwise(std::divides<T>(), v1, v2);
 }
+
+/** }@*/
 
 } // namespace cotila
 

@@ -12,6 +12,10 @@
 
 namespace cotila {
 
+/** \addtogroup vector
+ *  @{
+ */
+
 /** @brief computes the elementwise complex conjugate
  *  @param v an N-vector of type T
  *  @return an N-vector \f$ \overline{\textbf{v}} \f$ of type T such that
@@ -130,6 +134,8 @@ constexpr std::size_t max_index(const vector<T, N> &v) {
     }
   return index;
 }
+
+/** @}*/
 
 } // namespace cotila
 

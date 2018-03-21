@@ -6,6 +6,10 @@
 
 namespace cotila {
 
+/** \addtogroup matrix
+ *  @{
+ */
+
 template <
     typename F, typename T, typename... Matrices,
     typename U = std::invoke_result_t<F, T, typename Matrices::value_type...>,
@@ -81,6 +85,8 @@ constexpr matrix<T, M, N> swapcol(const matrix<T, M, N> &m, std::size_t col1, st
     }
     return A;
 }
+
+/** }@*/
 
 } // namespace cotila
 
