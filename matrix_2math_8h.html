@@ -78,13 +78,7 @@ $(function() {
 
 <p>Mathematical operations on matrices.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;<a class="el" href="scalar_2math_8h_source.html">cotila/scalar/math.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="vector_8h_source.html">cotila/vector/vector.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="vector_2math_8h_source.html">cotila/vector/math.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="matrix_8h_source.html">cotila/matrix/matrix.h</a>&gt;</code><br />
-<code>#include &lt;cotila/matrix/utility.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
+<div class="textblock"><div class="dynheader">
 Include dependency graph for math.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="matrix_2math_8h__incl.png" border="0" usemap="#include_2cotila_2matrix_2math_8h" alt=""/></div>
@@ -110,38 +104,38 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac1a259b23ef5a657fbba5e7e7824da28"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
-<tr class="memitem:ac1a259b23ef5a657fbba5e7e7824da28"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2math_8h_ac1a259b23ef5a657fbba5e7e7824da28.html#ac1a259b23ef5a657fbba5e7e7824da28">cotila::conj</a> (const matrix&lt; T, M, N &gt; &amp;m)</td></tr>
-<tr class="memdesc:ac1a259b23ef5a657fbba5e7e7824da28"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the elementwise complex conjugate  <a href="matrix_2math_8h_ac1a259b23ef5a657fbba5e7e7824da28.html#ac1a259b23ef5a657fbba5e7e7824da28">More...</a><br /></td></tr>
-<tr class="separator:ac1a259b23ef5a657fbba5e7e7824da28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f2dd11b1304e5bc06ec2f03dd07f394"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
-<tr class="memitem:a3f2dd11b1304e5bc06ec2f03dd07f394"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, N, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2math_8h_a3f2dd11b1304e5bc06ec2f03dd07f394.html#a3f2dd11b1304e5bc06ec2f03dd07f394">cotila::transpose</a> (const matrix&lt; T, M, N &gt; &amp;m)</td></tr>
-<tr class="memdesc:a3f2dd11b1304e5bc06ec2f03dd07f394"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the transpose  <a href="matrix_2math_8h_a3f2dd11b1304e5bc06ec2f03dd07f394.html#a3f2dd11b1304e5bc06ec2f03dd07f394">More...</a><br /></td></tr>
-<tr class="separator:a3f2dd11b1304e5bc06ec2f03dd07f394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac5d4dca1915e7395204182f11cdd4c9"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
-<tr class="memitem:aac5d4dca1915e7395204182f11cdd4c9"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, N, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2math_8h_aac5d4dca1915e7395204182f11cdd4c9.html#aac5d4dca1915e7395204182f11cdd4c9">cotila::hermitian</a> (const matrix&lt; T, M, N &gt; &amp;m)</td></tr>
-<tr class="memdesc:aac5d4dca1915e7395204182f11cdd4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the Hermitian transpose  <a href="matrix_2math_8h_aac5d4dca1915e7395204182f11cdd4c9.html#aac5d4dca1915e7395204182f11cdd4c9">More...</a><br /></td></tr>
-<tr class="separator:aac5d4dca1915e7395204182f11cdd4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eb9e8956f4d05343a13dce92b683dd7"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N, std::size_t P&gt; </td></tr>
-<tr class="memitem:a6eb9e8956f4d05343a13dce92b683dd7"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2math_8h_a6eb9e8956f4d05343a13dce92b683dd7.html#a6eb9e8956f4d05343a13dce92b683dd7">cotila::matmul</a> (const matrix&lt; T, M, N &gt; &amp;a, const matrix&lt; T, N, P &gt; &amp;b)</td></tr>
-<tr class="memdesc:a6eb9e8956f4d05343a13dce92b683dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the matrix product  <a href="matrix_2math_8h_a6eb9e8956f4d05343a13dce92b683dd7.html#a6eb9e8956f4d05343a13dce92b683dd7">More...</a><br /></td></tr>
-<tr class="separator:a6eb9e8956f4d05343a13dce92b683dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accf0857734a68e25f3bf745afe97ab3a"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N, std::size_t P, std::size_t Q&gt; </td></tr>
-<tr class="memitem:accf0857734a68e25f3bf745afe97ab3a"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M *P, N *Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2math_8h_accf0857734a68e25f3bf745afe97ab3a.html#accf0857734a68e25f3bf745afe97ab3a">cotila::kron</a> (const matrix&lt; T, M, N &gt; &amp;a, const matrix&lt; T, P, Q &gt; &amp;b)</td></tr>
-<tr class="memdesc:accf0857734a68e25f3bf745afe97ab3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the kronecker tensor product.  <a href="matrix_2math_8h_accf0857734a68e25f3bf745afe97ab3a.html#accf0857734a68e25f3bf745afe97ab3a">More...</a><br /></td></tr>
-<tr class="separator:accf0857734a68e25f3bf745afe97ab3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f06fe57eb95ca843f1f71f76f979311"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
-<tr class="memitem:a8f06fe57eb95ca843f1f71f76f979311"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2math_8h_a8f06fe57eb95ca843f1f71f76f979311.html#a8f06fe57eb95ca843f1f71f76f979311">cotila::gauss_elim</a> (matrix&lt; T, M, M &gt; a, matrix&lt; T, M, N &gt; b)</td></tr>
-<tr class="memdesc:a8f06fe57eb95ca843f1f71f76f979311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform Gaussian Elimination.  <a href="matrix_2math_8h_a8f06fe57eb95ca843f1f71f76f979311.html#a8f06fe57eb95ca843f1f71f76f979311">More...</a><br /></td></tr>
-<tr class="separator:a8f06fe57eb95ca843f1f71f76f979311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae86cbdd88f82d01ed0d29da461398254"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M&gt; </td></tr>
-<tr class="memitem:ae86cbdd88f82d01ed0d29da461398254"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2math_8h_ae86cbdd88f82d01ed0d29da461398254.html#ae86cbdd88f82d01ed0d29da461398254">cotila::inverse</a> (const matrix&lt; T, M, M &gt; &amp;m)</td></tr>
-<tr class="memdesc:ae86cbdd88f82d01ed0d29da461398254"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the matrix inverse  <a href="matrix_2math_8h_ae86cbdd88f82d01ed0d29da461398254.html#ae86cbdd88f82d01ed0d29da461398254">More...</a><br /></td></tr>
-<tr class="separator:ae86cbdd88f82d01ed0d29da461398254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0943356bb0ce39182db2f52180a9ac16"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M&gt; </td></tr>
-<tr class="memitem:a0943356bb0ce39182db2f52180a9ac16"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_2math_8h_a0943356bb0ce39182db2f52180a9ac16.html#a0943356bb0ce39182db2f52180a9ac16">cotila::trace</a> (const matrix&lt; T, M, M &gt; &amp;m)</td></tr>
-<tr class="memdesc:a0943356bb0ce39182db2f52180a9ac16"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the trace  <a href="matrix_2math_8h_a0943356bb0ce39182db2f52180a9ac16.html#a0943356bb0ce39182db2f52180a9ac16">More...</a><br /></td></tr>
-<tr class="separator:a0943356bb0ce39182db2f52180a9ac16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1a259b23ef5a657fbba5e7e7824da28"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
+<tr class="memitem:gac1a259b23ef5a657fbba5e7e7824da28"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_gac1a259b23ef5a657fbba5e7e7824da28.html#gac1a259b23ef5a657fbba5e7e7824da28">cotila::conj</a> (const matrix&lt; T, M, N &gt; &amp;m)</td></tr>
+<tr class="memdesc:gac1a259b23ef5a657fbba5e7e7824da28"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the elementwise complex conjugate  <a href="group__matrix_gac1a259b23ef5a657fbba5e7e7824da28.html#gac1a259b23ef5a657fbba5e7e7824da28">More...</a><br /></td></tr>
+<tr class="separator:gac1a259b23ef5a657fbba5e7e7824da28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f2dd11b1304e5bc06ec2f03dd07f394"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
+<tr class="memitem:ga3f2dd11b1304e5bc06ec2f03dd07f394"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, N, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_ga3f2dd11b1304e5bc06ec2f03dd07f394.html#ga3f2dd11b1304e5bc06ec2f03dd07f394">cotila::transpose</a> (const matrix&lt; T, M, N &gt; &amp;m)</td></tr>
+<tr class="memdesc:ga3f2dd11b1304e5bc06ec2f03dd07f394"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the transpose  <a href="group__matrix_ga3f2dd11b1304e5bc06ec2f03dd07f394.html#ga3f2dd11b1304e5bc06ec2f03dd07f394">More...</a><br /></td></tr>
+<tr class="separator:ga3f2dd11b1304e5bc06ec2f03dd07f394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac5d4dca1915e7395204182f11cdd4c9"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
+<tr class="memitem:gaac5d4dca1915e7395204182f11cdd4c9"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, N, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_gaac5d4dca1915e7395204182f11cdd4c9.html#gaac5d4dca1915e7395204182f11cdd4c9">cotila::hermitian</a> (const matrix&lt; T, M, N &gt; &amp;m)</td></tr>
+<tr class="memdesc:gaac5d4dca1915e7395204182f11cdd4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the Hermitian transpose  <a href="group__matrix_gaac5d4dca1915e7395204182f11cdd4c9.html#gaac5d4dca1915e7395204182f11cdd4c9">More...</a><br /></td></tr>
+<tr class="separator:gaac5d4dca1915e7395204182f11cdd4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6eb9e8956f4d05343a13dce92b683dd7"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N, std::size_t P&gt; </td></tr>
+<tr class="memitem:ga6eb9e8956f4d05343a13dce92b683dd7"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_ga6eb9e8956f4d05343a13dce92b683dd7.html#ga6eb9e8956f4d05343a13dce92b683dd7">cotila::matmul</a> (const matrix&lt; T, M, N &gt; &amp;a, const matrix&lt; T, N, P &gt; &amp;b)</td></tr>
+<tr class="memdesc:ga6eb9e8956f4d05343a13dce92b683dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the matrix product  <a href="group__matrix_ga6eb9e8956f4d05343a13dce92b683dd7.html#ga6eb9e8956f4d05343a13dce92b683dd7">More...</a><br /></td></tr>
+<tr class="separator:ga6eb9e8956f4d05343a13dce92b683dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaccf0857734a68e25f3bf745afe97ab3a"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N, std::size_t P, std::size_t Q&gt; </td></tr>
+<tr class="memitem:gaccf0857734a68e25f3bf745afe97ab3a"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M *P, N *Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_gaccf0857734a68e25f3bf745afe97ab3a.html#gaccf0857734a68e25f3bf745afe97ab3a">cotila::kron</a> (const matrix&lt; T, M, N &gt; &amp;a, const matrix&lt; T, P, Q &gt; &amp;b)</td></tr>
+<tr class="memdesc:gaccf0857734a68e25f3bf745afe97ab3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the kronecker tensor product.  <a href="group__matrix_gaccf0857734a68e25f3bf745afe97ab3a.html#gaccf0857734a68e25f3bf745afe97ab3a">More...</a><br /></td></tr>
+<tr class="separator:gaccf0857734a68e25f3bf745afe97ab3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f06fe57eb95ca843f1f71f76f979311"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
+<tr class="memitem:ga8f06fe57eb95ca843f1f71f76f979311"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_ga8f06fe57eb95ca843f1f71f76f979311.html#ga8f06fe57eb95ca843f1f71f76f979311">cotila::gauss_elim</a> (matrix&lt; T, M, M &gt; a, matrix&lt; T, M, N &gt; b)</td></tr>
+<tr class="memdesc:ga8f06fe57eb95ca843f1f71f76f979311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform Gaussian Elimination.  <a href="group__matrix_ga8f06fe57eb95ca843f1f71f76f979311.html#ga8f06fe57eb95ca843f1f71f76f979311">More...</a><br /></td></tr>
+<tr class="separator:ga8f06fe57eb95ca843f1f71f76f979311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae86cbdd88f82d01ed0d29da461398254"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M&gt; </td></tr>
+<tr class="memitem:gae86cbdd88f82d01ed0d29da461398254"><td class="memTemplItemLeft" align="right" valign="top">constexpr matrix&lt; T, M, M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_gae86cbdd88f82d01ed0d29da461398254.html#gae86cbdd88f82d01ed0d29da461398254">cotila::inverse</a> (const matrix&lt; T, M, M &gt; &amp;m)</td></tr>
+<tr class="memdesc:gae86cbdd88f82d01ed0d29da461398254"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the matrix inverse  <a href="group__matrix_gae86cbdd88f82d01ed0d29da461398254.html#gae86cbdd88f82d01ed0d29da461398254">More...</a><br /></td></tr>
+<tr class="separator:gae86cbdd88f82d01ed0d29da461398254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0943356bb0ce39182db2f52180a9ac16"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M&gt; </td></tr>
+<tr class="memitem:ga0943356bb0ce39182db2f52180a9ac16"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_ga0943356bb0ce39182db2f52180a9ac16.html#ga0943356bb0ce39182db2f52180a9ac16">cotila::trace</a> (const matrix&lt; T, M, M &gt; &amp;m)</td></tr>
+<tr class="memdesc:ga0943356bb0ce39182db2f52180a9ac16"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the trace  <a href="group__matrix_ga0943356bb0ce39182db2f52180a9ac16.html#ga0943356bb0ce39182db2f52180a9ac16">More...</a><br /></td></tr>
+<tr class="separator:ga0943356bb0ce39182db2f52180a9ac16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
