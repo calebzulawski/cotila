@@ -67,9 +67,9 @@ constexpr matrix<T, M, P> matmul(const matrix<T, M, N> &a,
 /** @brief Computes the kronecker tensor product
  *  @param a an \f$M \times N\f$ matrix
  *  @param b an \f$P \times Q\f$ matrix
- *  @return An \f$ MP \times NQ \f$ matrix \f$ \textbf{A}\otimes\textbf{B} \f$ of type T such that
- *  \f$ \left(\textbf{AB}\right)_{ij} = a_{\lfloor i/P \rfloor,\lfloor j/Q \rfloor}b_{i\%P,j\%Q} \f$
- *  where \f$ i \% P \f$ is the remainder of \f$ i/P \f$ 
+ *  @return An \f$ MP \times NQ \f$ matrix \f$ \textbf{a}\otimes\textbf{b} \f$ of type T such that
+ *  \f$ \left(\textbf{a}\otimes\textbf{b}\right)_{ij} = \textbf{a}_{\lfloor i/P \rfloor,\lfloor j/Q \rfloor}\textbf{b}_{i\textrm{%}P,j\textrm{%}Q} \f$
+ *  where \f$ i \textrm{%} P \f$ is the remainder of \f$ i/P \f$ 
  *
  * Computes the kronecker tensor product of two matrices.
  */
@@ -82,56 +82,68 @@ constexpr matrix<T, M * P, N * Q> kron(const matrix<T, M, N> &a,
 
 /** @brief Perform Gaussian Elimination
  *  @param a an \f$ M \times M \f$ matrix of type T
- *  @param adj A \f$ M \times N \f$ matrix 
- *  @return b, A \f$ M \times N \f$ matrix x that solves the equation
- *  \f$ \textbf{A}\textbf{x} = \textbf{b} \f$.
+ *  @param b A \f$ M \times N \f$ matrix of type T 
+ *  @return The \f$ M \times N \f$ matrix \f$ \textbf{x} \f$ that solves the equation
+ *  \f$ \textbf{a}\textbf{x} = \textbf{b} \f$.
  *
- *  Perform Gaussian elimination.
+ *  Performs Gaussian elimination.
  */
 template <typename T, std::size_t M, std::size_t N>
 constexpr matrix<T, M, N> gauss_elim(matrix<T, M, M> a,
-                                     matrix<T, M, N> adj) {
+                                     matrix<T, M, N> b) {
   for (std::size_t k = 0; k < M; ++k) {
     // first normalize the row
-    auto scale_A = a[k][k];
-    if (scale_A == 0)
+    auto scale_a = a[k][k];
+    if (scale_a == 0)
       throw "Matrix on left hand side is not invertible";
 
     for (std::size_t j = 0; j < N; ++j) {
-      adj[k][j] = adj[k][j] / scale_A;
-      a[k][j] = a[k][j] / scale_A;
+      b[k][j] = b[k][j] / scale_a;
+      a[k][j] = a[k][j] / scale_a;
     }
-    auto pivot_A = a.row(k);
-    auto pivot_adj = adj.row(k);
+    auto pivot_a = a.row(k);
+    auto pivot_b = b.row(k);
 
     for (std::size_t i = 0; i < M; ++i) {
       if (i != k) {
         // pivot should be normalized to 1 already
-        auto row_to_subtract_A = pivot_A * a[i][k];
-        auto row_to_subtract_adj = pivot_adj * a[i][k];
+        auto row_to_subtract_a = pivot_a * a[i][k];
+        auto row_to_subtract_b = pivot_b * a[i][k];
         for (std::size_t j = 0; j < M; ++j) {
-          a[i][j] = a[i][j] - row_to_subtract_A[j];
+          a[i][j] = a[i][j] - row_to_subtract_a[j];
         }
         for (std::size_t j = 0; j < N; ++j) {
-          adj[i][j] = adj[i][j] - row_to_subtract_adj[j];
+          b[i][j] = b[i][j] - row_to_subtract_b[j];
         }
       }
     }
   }
-  return adj;
+  return b;
 }
 
 /** @brief computes the matrix inverse
  *  @param m an \f$ M \times M \f$ matrix of type T
- *  @return The inverse of \f$ \textbf{M} \f$, \f$ \textbf{M}^{-1}\f$ such that
- *  \f$ \textbf{M}\textbf{M}^{-1} == \textbf{M}^{-1}\textbf{M} == \textbf{I}_{M}
+ *  @return The inverse of \f$ \textbf{m} \f$, \f$ \textbf{m}^{-1}\f$ such that
+ *  \f$ \textbf{m}\textbf{m}^{-1} = \textbf{m}^{-1}\textbf{m} = \textbf{I}_{M}
  * \f$
  *
- *  Computes the inverse of a matrix..
+ *  Computes the inverse of a matrix.
  */
 template <typename T, std::size_t M>
 constexpr matrix<T, M, M> inverse(const matrix<T, M, M> &m) {
   return gauss_elim(m, identity<T, M>);
+}
+
+/** @brief computes the trace
+ *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @return the trace of \f$ \textbf{m} \f$, \f$ \textrm{tr}\left(\textbf{m}\right) \f$
+ *  such that \f$ \textrm{tr}\left(\textbf{m}\right) = \sum\limits_{n=1}^{M} \textbf{m}_{nn} \f$
+ *
+ *  Computes the trace of a matrix.
+ */
+template <typename T, std::size_t M>
+constexpr T trace(const matrix<T, M, M> &m) {
+  return sum(generate<M>([&m](std::size_t i){ return m[i][i]; }));
 }
 
 } // namespace cotila

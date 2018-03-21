@@ -104,6 +104,8 @@ static_assert(gauss_elim(m22, matrix<double, 2, 1>{{{1.},{1.}}}) ==
                 matrix<double, 2, 1>{{{4.}, {-1.}}},
                 "gaussian elimination/equation solving");
 
+static_assert(trace(m1) == 15, "matrix trace");
+
 } // namespace test
 } // namespace cotila
 
