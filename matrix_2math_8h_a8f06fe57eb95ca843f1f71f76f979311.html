@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::kron</title>
+<title>Cotila: cotila::gauss_elim</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,24 +78,24 @@ $(function() {
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="file_accf0857734a68e25f3bf745afe97ab3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#file_accf0857734a68e25f3bf745afe97ab3a">&#9670;&nbsp;</a></span>kron()</h2>
+<a id="file_a8f06fe57eb95ca843f1f71f76f979311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a8f06fe57eb95ca843f1f71f76f979311">&#9670;&nbsp;</a></span>gauss_elim()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , std::size_t M, std::size_t N, std::size_t P, std::size_t Q&gt; </div>
+template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">constexpr matrix&lt;T, M * P, N * Q&gt; cotila::kron </td>
+          <td class="memname">constexpr matrix&lt;T, M, N&gt; cotila::gauss_elim </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, M &gt;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, P, Q &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -107,13 +107,13 @@ template&lt;typename T , std::size_t M, std::size_t N, std::size_t P, std::size_
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>an \(M \times N\) matrix </td></tr>
-    <tr><td class="paramname">b</td><td>an \(P \times Q\) matrix </td></tr>
+    <tr><td class="paramname">a</td><td>an \( M \times M \) matrix of type T </td></tr>
+    <tr><td class="paramname">b</td><td>A \( M \times N \) matrix of type T </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An \( MP \times NQ \) matrix \( \textbf{a}\otimes\textbf{b} \) of type T such that \( \left(\textbf{a}\otimes\textbf{b}\right)_{ij} = \textbf{a}_{\lfloor i/P \rfloor,\lfloor j/Q \rfloor}\textbf{b}_{i\textrm{%}P,j\textrm{%}Q} \) where \( i \textrm{%} P \) is the remainder of \( i/P \)</dd></dl>
-<p>Computes the kronecker tensor product of two matrices. </p>
+<dl class="section return"><dt>Returns</dt><dd>The \( M \times N \) matrix \( \textbf{x} \) that solves the equation \( \textbf{a}\textbf{x} = \textbf{b} \).</dd></dl>
+<p>Performs Gaussian elimination. </p>
 
 </div>
 </div>

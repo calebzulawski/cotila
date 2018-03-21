@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::gauss_elim</title>
+<title>Cotila: cotila::trace</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,42 +78,31 @@ $(function() {
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="file_a774accf275d58fc7ee03a01ff6912473"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#file_a774accf275d58fc7ee03a01ff6912473">&#9670;&nbsp;</a></span>gauss_elim()</h2>
+<a id="file_a0943356bb0ce39182db2f52180a9ac16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a0943356bb0ce39182db2f52180a9ac16">&#9670;&nbsp;</a></span>trace()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
+template&lt;typename T , std::size_t M&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">constexpr matrix&lt;T, M, N&gt; cotila::gauss_elim </td>
+          <td class="memname">constexpr T cotila::trace </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, M &gt;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, M &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt;&#160;</td>
-          <td class="paramname"><em>adj</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>an \( M \times M \) matrix of type T </td></tr>
-    <tr><td class="paramname">adj</td><td>A \( M \times N \) matrix </td></tr>
+    <tr><td class="paramname">m</td><td>an \( M \times M \) matrix of type T </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>b, A \( M \times N \) matrix x that solves the equation \( \textbf{A}\textbf{x} = \textbf{b} \).</dd></dl>
-<p>Perform Gaussian elimination. </p>
+<dl class="section return"><dt>Returns</dt><dd>the trace of \( \textbf{m} \), \( \textrm{tr}\left(\textbf{m}\right) \) such that \( \textrm{tr}\left(\textbf{m}\right) = \sum\limits_{n=1}^{M} \textbf{m}_{nn} \)</dd></dl>
+<p>Computes the trace of a matrix. </p>
 
 </div>
 </div>
