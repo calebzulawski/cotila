@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['operator_5b_5d',['operator[]',['../structcotila_1_1matrix_a24504a5cfda19b15c2d8a740c35025fe.html#a24504a5cfda19b15c2d8a740c35025fe',1,'cotila::matrix::operator[](std::size_t i)'],['../structcotila_1_1matrix_aea462b93d2281ddee78b815055e67a8c.html#aea462b93d2281ddee78b815055e67a8c',1,'cotila::matrix::operator[](std::size_t i) const'],['../structcotila_1_1vector_a0216a96304931174d3ace844ffb078a4.html#a0216a96304931174d3ace844ffb078a4',1,'cotila::vector::operator[](size_type i) noexcept'],['../structcotila_1_1vector_a7f18c2333643bed9b4eb6ac2e974c82b.html#a7f18c2333643bed9b4eb6ac2e974c82b',1,'cotila::vector::operator[](size_type i) const noexcept']]]
+  ['rank',['rank',['../group__matrix_ga2fa47f651ef9961e2586db8d54f65c3a.html#ga2fa47f651ef9961e2586db8d54f65c3a',1,'cotila']]],
+  ['row',['row',['../structcotila_1_1matrix_a4db707141f16c2d4b952a51957d35508.html#a4db707141f16c2d4b952a51957d35508',1,'cotila::matrix']]],
+  ['rref',['rref',['../group__matrix_ga42ed7a76cd33c80b451e28958d606bef.html#ga42ed7a76cd33c80b451e28958d606bef',1,'cotila::rref(const matrix&lt; T, M, N &gt; &amp;m)'],['../group__matrix_ga14e3af9debb27cbc359942e41298c07f.html#ga14e3af9debb27cbc359942e41298c07f',1,'cotila::rref(const matrix&lt; T, M, N &gt; &amp;m, T tolerance)']]]
 ];

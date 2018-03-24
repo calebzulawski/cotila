@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inverse',['inverse',['../group__matrix_gae86cbdd88f82d01ed0d29da461398254.html#gae86cbdd88f82d01ed0d29da461398254',1,'cotila']]]
+  ['kron',['kron',['../group__matrix_gaccf0857734a68e25f3bf745afe97ab3a.html#gaccf0857734a68e25f3bf745afe97ab3a',1,'cotila']]]
 ];

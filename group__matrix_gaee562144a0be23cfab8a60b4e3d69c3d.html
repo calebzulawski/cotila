@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::gauss_elim</title>
+<title>Cotila: cotila::macs</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,19 +75,24 @@ $(function() {
       <div class="navtab">
         <table>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gac1a259b23ef5a657fbba5e7e7824da28.html#gac1a259b23ef5a657fbba5e7e7824da28">conj</a></td></tr>
-          <tr><td class="navtab"><a class="qindexHL" href="group__matrix_ga8f06fe57eb95ca843f1f71f76f979311.html#ga8f06fe57eb95ca843f1f71f76f979311">gauss_elim</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__matrix_gac3e7d1c060f394ab9b6cf49eef37f53a.html#gac3e7d1c060f394ab9b6cf49eef37f53a">det</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gaac5d4dca1915e7395204182f11cdd4c9.html#gaac5d4dca1915e7395204182f11cdd4c9">hermitian</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gae86cbdd88f82d01ed0d29da461398254.html#gae86cbdd88f82d01ed0d29da461398254">inverse</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gaccf0857734a68e25f3bf745afe97ab3a.html#gaccf0857734a68e25f3bf745afe97ab3a">kron</a></td></tr>
+          <tr><td class="navtab"><a class="qindexHL" href="group__matrix_gaee562144a0be23cfab8a60b4e3d69c3d.html#gaee562144a0be23cfab8a60b4e3d69c3d">macs</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__matrix_ga486b0a67360aa4203302dc98384bcae0.html#ga486b0a67360aa4203302dc98384bcae0">mars</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga6eb9e8956f4d05343a13dce92b683dd7.html#ga6eb9e8956f4d05343a13dce92b683dd7">matmul</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__matrix_ga2fa47f651ef9961e2586db8d54f65c3a.html#ga2fa47f651ef9961e2586db8d54f65c3a">rank</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__matrix_ga42ed7a76cd33c80b451e28958d606bef.html#ga42ed7a76cd33c80b451e28958d606bef">rref</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__matrix_ga14e3af9debb27cbc359942e41298c07f.html#ga14e3af9debb27cbc359942e41298c07f">rref</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga0943356bb0ce39182db2f52180a9ac16.html#ga0943356bb0ce39182db2f52180a9ac16">trace</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga3f2dd11b1304e5bc06ec2f03dd07f394.html#ga3f2dd11b1304e5bc06ec2f03dd07f394">transpose</a></td></tr>
         </table>
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="ga8f06fe57eb95ca843f1f71f76f979311"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8f06fe57eb95ca843f1f71f76f979311">&#9670;&nbsp;</a></span>gauss_elim()</h2>
+<a id="gaee562144a0be23cfab8a60b4e3d69c3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee562144a0be23cfab8a60b4e3d69c3d">&#9670;&nbsp;</a></span>macs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -95,33 +100,22 @@ $(function() {
 template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt;T, M, N&gt; cotila::gauss_elim </td>
+          <td class="memname">constexpr T cotila::macs </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, M &gt;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>an \( M \times M \) matrix of type T </td></tr>
-    <tr><td class="paramname">b</td><td>A \( M \times N \) matrix of type T </td></tr>
+    <tr><td class="paramname">m</td><td>an \(M \times N\) matrix </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The \( M \times N \) matrix \( \textbf{x} \) that solves the equation \( \textbf{a}\textbf{x} = \textbf{b} \).</dd></dl>
-<p>Performs Gaussian elimination. </p>
+<dl class="section return"><dt>Returns</dt><dd>a scalar \( {\left\lVert \textbf{m} \right\rVert}_1 \) of type T such that \( {\left\lVert \textbf{m} \right\rVert}_1 = \max\limits_j \sum\limits_{i=1}^M \left\lvert \textbf{m}_{ij} \right\rvert \)</dd></dl>
+<p>Computes the maximum absolute column sum norm of a matrix. </p>
 
 </div>
 </div>

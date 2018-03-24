@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::kron</title>
+<title>Cotila: cotila::det</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,10 +75,10 @@ $(function() {
       <div class="navtab">
         <table>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gac1a259b23ef5a657fbba5e7e7824da28.html#gac1a259b23ef5a657fbba5e7e7824da28">conj</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="group__matrix_gac3e7d1c060f394ab9b6cf49eef37f53a.html#gac3e7d1c060f394ab9b6cf49eef37f53a">det</a></td></tr>
+          <tr><td class="navtab"><a class="qindexHL" href="group__matrix_gac3e7d1c060f394ab9b6cf49eef37f53a.html#gac3e7d1c060f394ab9b6cf49eef37f53a">det</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gaac5d4dca1915e7395204182f11cdd4c9.html#gaac5d4dca1915e7395204182f11cdd4c9">hermitian</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gae86cbdd88f82d01ed0d29da461398254.html#gae86cbdd88f82d01ed0d29da461398254">inverse</a></td></tr>
-          <tr><td class="navtab"><a class="qindexHL" href="group__matrix_gaccf0857734a68e25f3bf745afe97ab3a.html#gaccf0857734a68e25f3bf745afe97ab3a">kron</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__matrix_gaccf0857734a68e25f3bf745afe97ab3a.html#gaccf0857734a68e25f3bf745afe97ab3a">kron</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gaee562144a0be23cfab8a60b4e3d69c3d.html#gaee562144a0be23cfab8a60b4e3d69c3d">macs</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga486b0a67360aa4203302dc98384bcae0.html#ga486b0a67360aa4203302dc98384bcae0">mars</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga6eb9e8956f4d05343a13dce92b683dd7.html#ga6eb9e8956f4d05343a13dce92b683dd7">matmul</a></td></tr>
@@ -91,42 +91,31 @@ $(function() {
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="gaccf0857734a68e25f3bf745afe97ab3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaccf0857734a68e25f3bf745afe97ab3a">&#9670;&nbsp;</a></span>kron()</h2>
+<a id="gac3e7d1c060f394ab9b6cf49eef37f53a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac3e7d1c060f394ab9b6cf49eef37f53a">&#9670;&nbsp;</a></span>det()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , std::size_t M, std::size_t N, std::size_t P, std::size_t Q&gt; </div>
+template&lt;typename T , std::size_t M&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt;T, M * P, N * Q&gt; cotila::kron </td>
+          <td class="memname">constexpr T cotila::det </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, M &gt; &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, P, Q &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>an \(M \times N\) matrix </td></tr>
-    <tr><td class="paramname">b</td><td>an \(P \times Q\) matrix </td></tr>
+    <tr><td class="paramname">m</td><td>\( M \times M \) matrix of type T </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An \( MP \times NQ \) matrix \( \textbf{a}\otimes\textbf{b} \) of type T such that \( \left(\textbf{a}\otimes\textbf{b}\right)_{ij} = \textbf{a}_{\lfloor i/P \rfloor,\lfloor j/Q \rfloor}\textbf{b}_{i\textrm{%}P,j\textrm{%}Q} \) where \( i \textrm{%} P \) is the remainder of \( i/P \)</dd></dl>
-<p>Computes the kronecker tensor product of two matrices. </p>
+<dl class="section return"><dt>Returns</dt><dd>a scalar \( \left\lvert \textbf{m} \right\rvert \) of type T</dd></dl>
+<p>Computes the determinant using the reduced row echelon form. </p>
 
 </div>
 </div>
