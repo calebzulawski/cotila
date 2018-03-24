@@ -107,10 +107,12 @@ static_assert(gauss_elim(m22, matrix<double, 2, 1>{{{1.},{1.}}}) ==
 static_assert(trace(m1) == 15, "matrix trace");
 
 static_assert(horzcat(identity<double, 2>, identity<double, 2>) ==
-                matrix<double, 2, 4>{{{1., 0., 1., 0.}, {0., 1., 0., 1.}}});
+                matrix<double, 2, 4>{{{1., 0., 1., 0.}, {0., 1., 0., 1.}}}, "horzcat");
 
 static_assert(vertcat(identity<double, 2>, identity<double, 2>) ==
-                matrix<double, 4, 2>{{{1., 0.}, {0., 1.}, {1., 0.}, {0., 1.}}});
+                matrix<double, 4, 2>{{{1., 0.}, {0., 1.}, {1., 0.}, {0., 1.}}}, "vertcat");
+
+static_assert(submat<2, 2>(m1, 1, 1) == matrix<double, 2, 2>{{{5., 6.}, {8., 9.}}}, "submat");
 
 } // namespace test
 } // namespace cotila

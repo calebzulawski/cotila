@@ -100,6 +100,14 @@ constexpr matrix<T, M + N, P> vertcat(const matrix<T, M, P> &a, const matrix<T, 
     });
 }
 
+template<std::size_t P, std::size_t Q, std::size_t M, std::size_t N, typename T>
+constexpr matrix<T, P, Q> submat(const matrix<T, M, N> &m, std::size_t i, std::size_t j){
+    if ((i + P > M) || (j + Q > N)) throw "index out of range";
+    return generate<P, Q>([&m, &i, &j](std::size_t r, std::size_t c){
+        return m[i + r][j + c];
+    });
+}
+
 /** }@*/
 
 } // namespace cotila
