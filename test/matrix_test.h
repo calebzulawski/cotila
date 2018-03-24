@@ -100,10 +100,6 @@ static_assert(matmul(inverse(m22), matrix<double, 2, 1>{{{1.},{1.}}}) ==
                 matrix<double, 2, 1>{{{4.}, {-1.}}},
                 "A^-1*b = x");
 
-static_assert(gauss_elim(m22, matrix<double, 2, 1>{{{1.},{1.}}}) ==
-                matrix<double, 2, 1>{{{4.}, {-1.}}},
-                "gaussian elimination/equation solving");
-
 static_assert(trace(m1) == 15, "matrix trace");
 
 static_assert(horzcat(identity<double, 2>, identity<double, 2>) ==
@@ -113,6 +109,23 @@ static_assert(vertcat(identity<double, 2>, identity<double, 2>) ==
                 matrix<double, 4, 2>{{{1., 0.}, {0., 1.}, {1., 0.}, {0., 1.}}}, "vertcat");
 
 static_assert(submat<2, 2>(m1, 1, 1) == matrix<double, 2, 2>{{{5., 6.}, {8., 9.}}}, "submat");
+
+static_assert(macs(m1) == 18, "maximum absolute value column sum norm");
+
+static_assert(mars(m1) == 24, "maximum absolute value row sum norm");
+
+static_assert(rref(m1) ==
+                matrix<double, 3, 3>{
+                {{1., 0., -1},
+                 {0., 1., 2.},
+                 {0., 0., 0.}}},
+                "rref");
+
+static_assert(rank(m1) == 2, "rank");
+
+static_assert(det(m1) == 0, "det");
+
+static_assert(det(m22) == 1, "det");
 
 } // namespace test
 } // namespace cotila
