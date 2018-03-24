@@ -8,8 +8,8 @@ namespace cotila {
 namespace test {
 
 constexpr matrix<double, 3, 3> m1 = {
-    {{1., 2., 3.}, 
-     {4., 5., 6.}, 
+    {{1., 2., 3.},
+     {4., 5., 6.},
      {7., 8., 9.}}};
 
 constexpr matrix<double, 1, 2> m2 = {{{1.,2.}}};
@@ -44,8 +44,8 @@ static_assert(transpose(m1) ==
 
 static_assert(hermitian(m1) ==
                   matrix<double, 3, 3>{
-                      {{1., 4., 7.}, 
-                       {2., 5., 8.}, 
+                      {{1., 4., 7.},
+                       {2., 5., 8.},
                        {3., 6., 9.}}},
               "herm-real");
 
@@ -58,8 +58,8 @@ static_assert(hermitian(m1c) ==
 
 static_assert(matmul(m1,m1) ==
                   matrix<double, 3, 3>{
-                      {{30., 36., 42.}, 
-                       {66., 81., 96.}, 
+                      {{30., 36., 42.},
+                       {66., 81., 96.},
                        {102., 126., 150.}}},
               "real matrix multiply");
 
@@ -85,26 +85,32 @@ static_assert(repmat<3, 2>(m2) ==
               "repmat");
 
 static_assert(kron(m2, m2) ==
-                matrix<double, 1, 4>{{{1., 2., 2., 4.}}}, 
+                matrix<double, 1, 4>{{{1., 2., 2., 4.}}},
               "kron");
 
 static_assert(identity<double, 3> == inverse(identity<double, 3>), "inverse-identity");
 
-static_assert(inverse(m22) == 
+static_assert(inverse(m22) ==
                 matrix<double, 2, 2>{
-                {{ 7., -3.}, 
+                {{ 7., -3.},
                  {-2.,  1.}}},
               "inverse");
 
-static_assert(matmul(inverse(m22), matrix<double, 2, 1>{{{1.},{1.}}}) == 
+static_assert(matmul(inverse(m22), matrix<double, 2, 1>{{{1.},{1.}}}) ==
                 matrix<double, 2, 1>{{{4.}, {-1.}}},
                 "A^-1*b = x");
 
-static_assert(gauss_elim(m22, matrix<double, 2, 1>{{{1.},{1.}}}) == 
+static_assert(gauss_elim(m22, matrix<double, 2, 1>{{{1.},{1.}}}) ==
                 matrix<double, 2, 1>{{{4.}, {-1.}}},
                 "gaussian elimination/equation solving");
 
 static_assert(trace(m1) == 15, "matrix trace");
+
+static_assert(horzcat(identity<double, 2>, identity<double, 2>) ==
+                matrix<double, 2, 4>{{{1., 0., 1., 0.}, {0., 1., 0., 1.}}});
+
+static_assert(vertcat(identity<double, 2>, identity<double, 2>) ==
+                matrix<double, 4, 2>{{{1., 0.}, {0., 1.}, {1., 0.}, {0., 1.}}});
 
 } // namespace test
 } // namespace cotila

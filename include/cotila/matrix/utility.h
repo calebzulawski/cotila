@@ -86,6 +86,20 @@ constexpr matrix<T, M, N> swapcol(const matrix<T, M, N> &m, std::size_t col1, st
     return A;
 }
 
+template<std::size_t M, std::size_t N, std::size_t P, typename T>
+constexpr matrix<T, M, N + P> horzcat(const matrix<T, M, N> &a, const matrix<T, M, P> &b){
+    return generate<M, N+P>([&a, &b](std::size_t i, std::size_t j){
+        return j < N ? a[i][j] : b[i][j - N];
+    });
+}
+
+template<std::size_t M, std::size_t N, std::size_t P, typename T>
+constexpr matrix<T, M + N, P> vertcat(const matrix<T, M, P> &a, const matrix<T, N, P> &b){
+    return generate<M + N, P>([&a, &b](std::size_t i, std::size_t j){
+        return i < M ? a[i][j] : b[i - M][j];
+    });
+}
+
 /** }@*/
 
 } // namespace cotila
