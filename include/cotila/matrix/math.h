@@ -122,15 +122,16 @@ gauss_jordan_impl(matrix<T, M, N> m, T tolerance) {
   std::size_t rank = 0;
   std::size_t i = 0, j = 0;
   while (i < M && j < N) {
-    // Swap row with another row if m_ij is 0 (if possible)
-    if (negligible(m[i][j])) {
-      for (std::size_t ip = i + 1; ip < M; ++ip) {
-        if (!negligible(m[ip][j])) {
-          for (std::size_t jp = 0; jp < N; ++jp)
-            std::swap(m[i][jp], m[ip][jp]);
-          det *= -1;
-          break;
+    // Choose largest magnitude as pivot to avoid adding different magnitudes
+    for (std::size_t ip = i + 1; ip < M; ++ip) {
+      if (abs(m[ip][j]) > abs(m[i][j])) {
+        for (std::size_t jp = 0; jp < N; ++jp) {
+          auto tmp = m[ip][jp];
+          m[ip][jp] = m[i][jp];
+          m[i][jp] = tmp;
         }
+        det *= -1;
+        break;
       }
     }
 
