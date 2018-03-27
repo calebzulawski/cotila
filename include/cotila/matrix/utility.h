@@ -108,6 +108,15 @@ constexpr matrix<T, P, Q> submat(const matrix<T, M, N> &m, std::size_t i, std::s
     });
 }
 
+template <std::size_t P, std::size_t Q, std::size_t M, std::size_t N,
+          typename T, typename = std::enable_if<P * Q == M * N>>
+constexpr matrix<T, P, Q> reshape(const matrix<T, M, N> &m) {
+  return generate<P, Q>([&m]<std::size_t Q1 = Q, std::size_t N1 = N>(
+      std::size_t i, std::size_t j) {
+    return m[(i * Q1 + j) / N][(i * Q1 + j) % N];
+  });
+}
+
 /** }@*/
 
 } // namespace cotila
