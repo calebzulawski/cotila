@@ -130,6 +130,11 @@ static_assert(det(m22) == 1, "det");
 static_assert(reshape<1, 9>(m1) == matrix<double, 1, 9>{
         {{1., 2., 3., 4., 5., 6., 7., 8., 9.}}}, "reshape");
 
+static_assert(
+    reshape<4, 2>(matrix<double, 2, 4>{{{1., 2., 3., 4.}, {5., 6., 7., 8.}}}) ==
+        matrix<double, 4, 2>{{{1., 2.}, {3., 4.}, {5., 6.}, {7., 8.}}},
+    "reshape");
+
 } // namespace test
 } // namespace cotila
 
