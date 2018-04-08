@@ -76,6 +76,14 @@ static_assert(make_vector(2, 3, 4) == slice<3>(make_vector(1, 2, 3, 4), 1),
 
 static_assert(make_vector(1,2,3,4) == concat(make_vector(1,2), make_vector(3,4)), "concat");
 
+static_assert(real(make_vector(cplxd(-1, 2), cplxd(1, -2))) ==
+                  make_vector(-1., 1.), "real");
+
+static_assert(imag(make_vector(cplxd(-1, 2), cplxd(1, -2))) ==
+                  make_vector(2., -2.), "imag");
+
+
+
 } // namespace test
 } // namespace cotila
 
