@@ -7,6 +7,7 @@
 
 #include <array>
 #include <cotila/detail/tmp.h>
+#include <cotila/detail/assert.h>
 #include <cstddef>
 
 namespace cotila {
@@ -22,6 +23,7 @@ namespace cotila {
  */
 template <typename T, std::size_t N> struct vector {
   static_assert(N != 0, "vector must contain at least one element");
+  ASSERT_ARITHMETIC(T);
 
   using value_type = T;
   using size_type = std::size_t;

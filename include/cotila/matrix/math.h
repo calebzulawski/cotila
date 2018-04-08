@@ -11,6 +11,7 @@
 #include <cotila/vector/math.h>
 #include <cotila/matrix/matrix.h>
 #include <cotila/matrix/utility.h>
+#include <cotila/detail/assert.h>
 
 namespace cotila {
 
@@ -115,6 +116,9 @@ constexpr T mars(const matrix<T, M, N> &m) {
 template <typename T, std::size_t M, std::size_t N>
 constexpr std::tuple<matrix<T, M, N>, std::size_t, T>
 gauss_jordan_impl(matrix<T, M, N> m, T tolerance) {
+  ASSERT_FLOATING_POINT(T);
+  ASSERT_REAL(T);
+
   // Define function for determining if an element is negligible
   auto negligible = [&tolerance](const T &v) { return abs(v) < tolerance; };
 

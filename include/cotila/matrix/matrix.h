@@ -8,6 +8,7 @@
 #include <array>
 #include <cotila/vector/utility.h>
 #include <cotila/vector/vector.h>
+#include <cotila/detail/assert.h>
 #include <tuple>
 
 namespace cotila {
@@ -24,6 +25,8 @@ namespace cotila {
 template <typename T, std::size_t N, std::size_t M> struct matrix {
   static_assert(N != 0 && M != 0,
                 "matrix must have have positive dimensions");
+  ASSERT_ARITHMETIC(T);
+
   using value_type = T;
   using size_type = std::size_t;
   static constexpr size_type column_size = N; ///< Number of rows

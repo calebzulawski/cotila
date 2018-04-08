@@ -25,9 +25,9 @@ static_assert(cotila::conj(4) == 4, "conj");
 
 static_assert(cotila::conj(-4) == -4, "conj");
 
-static_assert(cotila::conj(std::complex(3, 4)) == std::complex(3, -4), "conj");
+static_assert(cotila::conj(std::complex(3., 4.)) == std::complex(3., -4.), "conj");
 
-static_assert(cotila::conj(std::complex(3, -4)) == std::complex(3, 4), "conj");
+static_assert(cotila::conj(std::complex(3., -4.)) == std::complex(3., 4.), "conj");
 
 } // namespace test
 } // namespace cotila
