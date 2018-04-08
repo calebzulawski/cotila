@@ -39,6 +39,30 @@ constexpr vector<T, N> sqrt(const vector<T, N> &v) {
   return elementwise(static_cast<T (*)(T)>(sqrt), v);
 }
 
+/** @brief computes the elementwise real
+ * @param v an N-vector of type T
+ * @return an N-vector \f$ \textbf{u} \f$ of type T such that
+ * \f$ \textbf{u}_i = \mathbb{R}\{\textbf{v}_i\} \f$
+ *
+ * Computes the elementwise real of a vector.
+ */
+template <typename T, std::size_t N>
+constexpr vector<detail::remove_complex_t<T>, N> real(const vector<T, N> &v) {
+  return elementwise([](auto i) { return std::real(i); }, v);
+}
+
+/** @brief computes the elementwise imag 
+ * @param v an N-vector of type T
+ * @return an N-vector \f$ \textbf{u} \f$ of type T such that
+ * \f$ \textbf{u}_i = \mathbb{I}\{\textbf{v}_i\} \f$
+ *
+ * Computes the elementwise imag of a vector.
+ */
+template <typename T, std::size_t N>
+constexpr vector<detail::remove_complex_t<T>, N> imag(const vector<T, N> &v) {
+  return elementwise([](auto i) { return std::imag(i); }, v);
+}
+
 /** @brief computes the elementwise absolute value
  *  @param v an N-vector of type T
  *  @return an N-vector \f$ \begin{bmatrix} \lvert v_1 \rvert & \ldots & \lvert v_N \rvert \end{bmatrix} \f$ of type T

@@ -135,6 +135,12 @@ static_assert(
         matrix<double, 4, 2>{{{1., 2.}, {3., 4.}, {5., 6.}, {7., 8.}}},
     "reshape");
 
+static_assert(real(m1c) == m1, "real");
+
+static_assert(imag(m1c) == matrix<double, 3, 3>{{{1., 0., 0.},
+                                                 {1., 0., 0.},
+                                                 {1., 0., 0.}}}, "imag");
+
 } // namespace test
 } // namespace cotila
 

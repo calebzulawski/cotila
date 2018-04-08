@@ -31,6 +31,32 @@ constexpr matrix<T, M, N> conj(const matrix<T, M, N> &m) {
   return elementwise(cotila::conj<T>, m);
 }
 
+/** @brief computes the elementwise real 
+ *  @param m an \f$ M \times N \f$ matrix of type T
+ *  @return an \f$ M \times N \f$ matrix \f$\textbf{m}\f$ of type T such that
+ *  \f$ \left(\textbf{m}}_{ij} = \mathbb{R}\{\textbf{m}_{ij}\},\ \forall i,j \f$
+ *
+ *  Computes the elementwise real of a matrix
+ */
+template <typename T, std::size_t M, std::size_t N>
+constexpr matrix<detail::remove_complex_t<T>, M, N>
+real(const matrix<T, M, N> &m) {
+  return elementwise([](auto i) { return std::real(i); }, m);
+}
+
+/** @brief computes the elementwise imag 
+ *  @param m an \f$ M \times N \f$ matrix of type T
+ *  @return an \f$ M \times N \f$ matrix \f$\textbf{m}\f$ of type T such that
+ *  \f$ \left(\textbf{m}}_{ij} = \mathbb{I}\{\textbf{m}_{ij}\},\ \forall i,j \f$
+ *
+ *  Computes the elementwise imag of a matrix
+ */
+template <typename T, std::size_t M, std::size_t N>
+constexpr matrix<detail::remove_complex_t<T>, M, N>
+imag(const matrix<T, M, N> &m) {
+  return elementwise([](auto i) { return std::imag(i); }, m);
+}
+
 /** @brief computes the transpose
  *  @param m an \f$ M \times N \f$ matrix of type T
  *  @return an \f$ N \times M \f$ matrix \f$ \textbf{m}^{\mathrm{T}} \f$ of type T such that
