@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::min</title>
+<title>Cotila: cotila::real</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,17 +82,17 @@ $(function() {
           <tr><td class="navtab"><a class="qindex" href="group__vector_gac452c3a573cf52217aa806c08897e95e.html#gac452c3a573cf52217aa806c08897e95e">make_vector</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__vector_gad3bd316dd4b7c7786ef58009139896e9.html#gad3bd316dd4b7c7786ef58009139896e9">max</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__vector_ga056159624800a1a9a5e33e1c630a4801.html#ga056159624800a1a9a5e33e1c630a4801">max_index</a></td></tr>
-          <tr><td class="navtab"><a class="qindexHL" href="group__vector_ga0197f1a272159e2cd4ddb7adb0ef19bf.html#ga0197f1a272159e2cd4ddb7adb0ef19bf">min</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__vector_ga0197f1a272159e2cd4ddb7adb0ef19bf.html#ga0197f1a272159e2cd4ddb7adb0ef19bf">min</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__vector_gaba2193d78f3dfb9c364bf625762b8bf5.html#gaba2193d78f3dfb9c364bf625762b8bf5">min_index</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="group__vector_ga2251d2adb4505fa10af27a06b1ad7f40.html#ga2251d2adb4505fa10af27a06b1ad7f40">real</a></td></tr>
+          <tr><td class="navtab"><a class="qindexHL" href="group__vector_ga2251d2adb4505fa10af27a06b1ad7f40.html#ga2251d2adb4505fa10af27a06b1ad7f40">real</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__vector_ga72049c529001b554f95a56a6eb0574e5.html#ga72049c529001b554f95a56a6eb0574e5">sqrt</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__vector_ga224567edf43938c4e74fd3f9cb684df8.html#ga224567edf43938c4e74fd3f9cb684df8">sum</a></td></tr>
         </table>
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="ga0197f1a272159e2cd4ddb7adb0ef19bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0197f1a272159e2cd4ddb7adb0ef19bf">&#9670;&nbsp;</a></span>min()</h2>
+<a id="ga2251d2adb4505fa10af27a06b1ad7f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2251d2adb4505fa10af27a06b1ad7f40">&#9670;&nbsp;</a></span>real()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -100,7 +100,7 @@ $(function() {
 template&lt;typename T , std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">constexpr T cotila::min </td>
+          <td class="memname">constexpr <a class="el" href="structcotila_1_1vector.html">vector</a>&lt;detail::remove_complex_t&lt;T&gt;, N&gt; cotila::real </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structcotila_1_1vector.html">vector</a>&lt; T, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -114,8 +114,8 @@ template&lt;typename T , std::size_t N&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a scalar \( v_i \) of type T where \( v_i \leq v_j,\ \forall j \)</dd></dl>
-<p>Computes the minimum valued element of a vector. </p>
+<dl class="section return"><dt>Returns</dt><dd>an N-vector \( \textbf{u} \) of type T such that \( \textbf{u}_i = \mathbb{R}\{\textbf{v}_i\} \)</dd></dl>
+<p>Computes the elementwise real of a vector. </p>
 
 </div>
 </div>

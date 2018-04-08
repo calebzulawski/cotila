@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::trace</title>
+<title>Cotila: cotila::imag</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,7 +77,7 @@ $(function() {
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gac1a259b23ef5a657fbba5e7e7824da28.html#gac1a259b23ef5a657fbba5e7e7824da28">conj</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gac3e7d1c060f394ab9b6cf49eef37f53a.html#gac3e7d1c060f394ab9b6cf49eef37f53a">det</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gaac5d4dca1915e7395204182f11cdd4c9.html#gaac5d4dca1915e7395204182f11cdd4c9">hermitian</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="group__matrix_gafafc076407da71d52efd79d8e8fbbc8d.html#gafafc076407da71d52efd79d8e8fbbc8d">imag</a></td></tr>
+          <tr><td class="navtab"><a class="qindexHL" href="group__matrix_gafafc076407da71d52efd79d8e8fbbc8d.html#gafafc076407da71d52efd79d8e8fbbc8d">imag</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gae86cbdd88f82d01ed0d29da461398254.html#gae86cbdd88f82d01ed0d29da461398254">inverse</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gaccf0857734a68e25f3bf745afe97ab3a.html#gaccf0857734a68e25f3bf745afe97ab3a">kron</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gaee562144a0be23cfab8a60b4e3d69c3d.html#gaee562144a0be23cfab8a60b4e3d69c3d">macs</a></td></tr>
@@ -87,24 +87,24 @@ $(function() {
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga749b7dec2a552ce386a689cf3119c27e.html#ga749b7dec2a552ce386a689cf3119c27e">real</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga42ed7a76cd33c80b451e28958d606bef.html#ga42ed7a76cd33c80b451e28958d606bef">rref</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga14e3af9debb27cbc359942e41298c07f.html#ga14e3af9debb27cbc359942e41298c07f">rref</a></td></tr>
-          <tr><td class="navtab"><a class="qindexHL" href="group__matrix_ga0943356bb0ce39182db2f52180a9ac16.html#ga0943356bb0ce39182db2f52180a9ac16">trace</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__matrix_ga0943356bb0ce39182db2f52180a9ac16.html#ga0943356bb0ce39182db2f52180a9ac16">trace</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga3f2dd11b1304e5bc06ec2f03dd07f394.html#ga3f2dd11b1304e5bc06ec2f03dd07f394">transpose</a></td></tr>
         </table>
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="ga0943356bb0ce39182db2f52180a9ac16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0943356bb0ce39182db2f52180a9ac16">&#9670;&nbsp;</a></span>trace()</h2>
+<a id="gafafc076407da71d52efd79d8e8fbbc8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafafc076407da71d52efd79d8e8fbbc8d">&#9670;&nbsp;</a></span>imag()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , std::size_t M&gt; </div>
+template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">constexpr T cotila::trace </td>
+          <td class="memname">constexpr <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt;detail::remove_complex_t&lt;T&gt;, M, N&gt; cotila::imag </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, M &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
         </tr>
@@ -112,12 +112,12 @@ template&lt;typename T , std::size_t M&gt; </div>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>an \( M \times M \) matrix of type T </td></tr>
+    <tr><td class="paramname">m</td><td>an \( M \times N \) matrix of type T </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the trace of \( \textbf{m} \), \( \textrm{tr}\left(\textbf{m}\right) \) such that \( \textrm{tr}\left(\textbf{m}\right) = \sum\limits_{n=1}^{M} \textbf{m}_{nn} \)</dd></dl>
-<p>Computes the trace of a matrix. </p>
+<dl class="section return"><dt>Returns</dt><dd>an \( M \times N \) matrix \(\textbf{m}\) of type T such that \( \left(\textbf{m}}_{ij} = \mathbb{I}\{\textbf{m}_{ij}\},\ \forall i,j \)</dd></dl>
+<p>Computes the elementwise imag of a matrix </p>
 
 </div>
 </div>
