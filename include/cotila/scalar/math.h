@@ -48,7 +48,7 @@ constexpr float sqrt(float x) { return sqrt(double(x)); }
  *  Computes the absolute value.
  */
 template <typename T> constexpr detail::remove_complex_t<T> abs(T x) {
-  ASSERT_ARITHMETIC(T);
+  COTILA_DETAIL_ASSERT_ARITHMETIC(T);
   if constexpr (detail::is_complex_v<T>)
     return sqrt(x.real() * x.real() + x.imag() * x.imag());
   else
@@ -109,7 +109,7 @@ constexpr double nthroot(double x, int n) {
  *  Computes the complex conjugate.
  */
 template <typename T> constexpr T conj(T x) {
-  ASSERT_ARITHMETIC(T);
+  COTILA_DETAIL_ASSERT_ARITHMETIC(T);
   if constexpr (detail::is_complex_v<T>)
     return {x.real(), -x.imag()};
   else
