@@ -32,7 +32,7 @@ deploy:
         condition: $MATRIX_DEPLOY
     - provider: releases
       skip-cleanup: true
-      github-token: $GITHUB_TOKEN
+      api_key: $GITHUB_TOKEN
       file-glob: true
       file: packages/*
       on:
