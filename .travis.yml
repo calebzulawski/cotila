@@ -36,6 +36,5 @@ deploy:
       file-glob: true
       file: packages/*
       on:
-        branch: master
         condition: $MATRIX_DEPLOY
         tags: true
