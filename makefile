@@ -8,7 +8,6 @@ docs:
 
 packages:
 	$(eval COTILA_VER=$(shell git describe --tags))
-	echo $(COTILA_VER)
 	tar jcvf /tmp/cotila-$(COTILA_VER).tar.bz2 *
 	zip -r9 /tmp/cotila-$(COTILA_VER).zip *
 	mkdir -p packages
