@@ -15,18 +15,27 @@ matrix:
     - os: linux
       env:
         - MATRIX_IMAGE="calebzulawski/cotila-docs"
-        - MATRIX_CMD="/usr/bin/make clean && /usr/bin/make docs"
+        - MATRIX_CMD="/usr/bin/make clean && /usr/bin/make docs && /usr/bin/make packages"
         - MATRIX_DEPLOY="1"
 before_install:
     - docker pull ${MATRIX_IMAGE}
 script:
     - docker run -a stdout -a stderr --rm -v $(pwd):/opt/cotila -w /opt/cotila --entrypoint "" ${MATRIX_IMAGE} /bin/bash -c "$MATRIX_CMD"
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  local-dir: docs/html/
-  on:
-    branch: master
-    condition: $MATRIX_DEPLOY
+    - provider: pages
+      skip-cleanup: true
+      github-token: $GITHUB_TOKEN
+      keep-history: true
+      local-dir: docs/html/
+      on:
+        branch: master
+        condition: $MATRIX_DEPLOY
+    - provider: releases
+      skip-cleanup: true
+      github-token: $GITHUB_TOKEN
+      file-glob: true
+      file: packages/*
+      on:
+        branch: master
+        condition: $MATRIX_DEPLOY
+        tags: true
