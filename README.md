@@ -8,7 +8,7 @@ Licensed under the Apache License, Version 2.0
 
 ## Overview
 
-Cotila (**co**mpile-**ti**me **l**inear **a**lgebra) provides a set of linear algebra functions in C++ intended for use during compile time. 
+Cotila (**co**mpile-**ti**me **l**inear **a**lgebra) provides a set of linear algebra functions in C++ intended for use during compile time.
 All functions available in Cotila are ***constexpr***, meaning they can be used at compile-time to generate constants and lookup tables in a type-safe, transparent manner.
 
 ## Installation
@@ -40,8 +40,8 @@ static_assert(s == 2.); // this evaluates and passes at compile time
 
 **Vectors** are represented by the `cotila::vector` class.  The `vector` class is a container for scalar types.  Additionally, `vector` is an aggregate class containing a single array and is constructed via [aggregate initialization](http://en.cppreference.com/w/cpp/language/aggregate_initialization).  If you are confused, some notes on aggregate initialization can be found in the next section.  A simple vector example:
 ```c++
-constexpr cotila::vector<double, 3> v1 {{1., -2., 3.}};
-constexpr cotila::vector<double, 3> v2 {{1., 2., 3.}};
+constexpr cotila::vector<double, 3> v1 {{1., -2., 3.}}; // very explicit declaration
+constexpr cotila::vector v2 {1., 2., 3.}; // deduces the type, omits the extra braces via uniform initialization
 static_assert(v2 == cotila::abs(v1));
 ```
 
@@ -52,8 +52,8 @@ static_assert(v2 == cotila::abs(v1));
  *  4 5 6               2 5
  *                      3 6
  */
-constexpr cotila::matrix<double, 2, 3> m1 {{{1., 2., 3.}, {4., 5., 6.}}};
-constexpr cotila::matrix<double, 3, 2> m2 {{{1., 4.}, {2., 5.}, {3., 6.}}};
+constexpr cotila::matrix<double, 2, 3> m1 {{{1., 2., 3.}, {4., 5., 6.}}}; // very explicit declaration
+constexpr cotila::matrix m2 {{{1., 4.}, {2., 5.}, {3., 6.}}}; // deduces the type, but the extra braces are required
 static_assert(m2 == cotila::transpose(m1));
 ```
 
@@ -64,8 +64,8 @@ static_assert(m2 == cotila::transpose(m1));
  *  3 - 1i   4 + 2i     2 - 1i   4 - 2i
  *
  */
-constexpr cotila::matrix<std::complex<double>, 2, 2> m1 {{{1., 0.}, {2., 1.}}, {{3., -1.}, {4., 2.}}};
-constexpr cotila::matrix<std::complex<double>, 2, 2> m2 {{{1., 0.}, {3., 1.}}, {{2., -1.}, {4., -2.}}};
+constexpr cotila::matrix<std::complex<double>, 2, 2> m1 {{{{1., 0.}, {2., 1.}}, {{3., -1.}, {4., 2.}}}};
+constexpr cotila::matrix m2 {{{{1., 0.}, {3., 1.}}, {{2., -1.}, {4., -2.}}}}; // complex types can be deduced, too!
 static_assert(m2 = cotila::hermitian(m1));
 ```
 
@@ -93,4 +93,31 @@ vector<double, 3> v = {{1., 2., 3.}};
 or
 ```c++
 vector<double, 3> v {{1., 2., 3.}};
+```
+
+#### Uniform initialization
+
+Aggregate objects with a single member can be initialized with uniform initialization, which allows you to omit the extra braces:
+```c++
+vector<double, 3> v {1., 2., 3.};
+```
+
+You may omit the extra braces on `cotila::matrix`, however this can get confusing.
+You may not use nested initializer lists for uniform initialization, so the elements must be listed in row-major order:
+```c++
+matrix<double, 2, 2> m {1., 2., 3., 4.}; // first row contains [1, 2], second row contains [3, 4]
+```
+
+#### Class template argument deduction
+
+Cotila's vectors and matrices support class template argument deduction.  This allows you to omit the template arguments entirely:
+```c++
+vector v1 {1., 2., 3.};   // uniform initialization
+vector v2 {{1., 2., 3.}}; // normal aggregate initialization
+```
+
+Matrices do not support template argument deduction for uniform initialization, since it is impossible to deduce the shape of the matrix.
+In this case, an extra set of braces is always required:
+```c++
+matrix m {{{1., 2.}, {3., 4.}}};
 ```

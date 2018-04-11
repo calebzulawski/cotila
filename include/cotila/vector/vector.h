@@ -9,6 +9,7 @@
 #include <cotila/detail/tmp.h>
 #include <cotila/detail/assert.h>
 #include <cstddef>
+#include <type_traits>
 
 namespace cotila {
 
@@ -82,9 +83,46 @@ template <typename T, std::size_t N> struct vector {
  *  the same type.
  */
 template <typename... Args> constexpr decltype(auto) make_vector(Args... args) {
-  return vector<typename detail::all_same_type<Args...>::type, sizeof...(Args)>{
-      args...};
+  return vector{args...};
 }
+
+/** @name cotila::vector deduction guides */
+///@{
+
+/** @brief deduction guide for uniform initialization
+ *  @relatesalso cotila::vector
+ *
+ *  This deduction guide allows cotila::vector to be constructed like this:
+ *  \code{.cpp}
+ *  cotila::vector v{1., 2.}; // deduces the type of v to be cotila::vector<double, 2>
+ *  \endcode
+ */
+template <typename T, typename... U>
+vector(T, U...)
+    ->vector<std::enable_if_t<(std::is_same_v<T, U> && ...), T>,
+             1 + sizeof...(U)>;
+
+/** @brief deduction guide for aggregate initialization
+ *  @relatesalso cotila::vector
+ *
+ *  This deduction guide allows cotila::vector to be constructed like this:
+ *  \code{.cpp}
+ *  cotila::vector v{{1., 2.}}; // deduces the type of v to be cotila::vector<double, 2>
+ *  \endcode
+ */
+template <typename T, std::size_t N> vector(const T (&)[N])->vector<T, N>;
+
+/** @brief deduction guide for complex-valued aggregate initialization
+ *  @relatesalso cotila::vector
+ *
+ *  This deduction guide allows cotila::vector to be constructed like this:
+ *  \code{.cpp}
+ *  cotila::vector v{{{1., 0}, {2., 1}}}; // deduces the type of v to be cotila::vector<std::complex<double>, 2>
+ *  \endcode
+ */
+template <typename T, std::size_t N> vector(const T (&)[N][2])->vector<std::complex<T>, N>;
+
+///@}
 
 /** @}*/
 
