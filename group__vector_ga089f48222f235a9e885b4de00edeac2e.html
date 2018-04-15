@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::vector::cend</title>
+<title>Cotila: cotila::vector::vector</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,46 +76,45 @@ $(function() {
         <table>
           <tr><td class="navtab"><a class="qindex" href="structcotila_1_1vector_abf3a0e72186a81d8b95a01d770af425a.html#abf3a0e72186a81d8b95a01d770af425a">begin</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="structcotila_1_1vector_a9e1e83b03498e0bf11a648323d0e9fc5.html#a9e1e83b03498e0bf11a648323d0e9fc5">cbegin</a></td></tr>
-          <tr><td class="navtab"><a class="qindexHL" href="structcotila_1_1vector_a0f8379907b908417c341ed73d1c63cc4.html#a0f8379907b908417c341ed73d1c63cc4">cend</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="structcotila_1_1vector_a0f8379907b908417c341ed73d1c63cc4.html#a0f8379907b908417c341ed73d1c63cc4">cend</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__vector_ga8e2f2bc322c85e7a55b1efda9cc18caf.html#ga8e2f2bc322c85e7a55b1efda9cc18caf">decltype</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="structcotila_1_1vector_ad9aece269a2a8c6266075a4d39026fbe.html#ad9aece269a2a8c6266075a4d39026fbe">end</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="structcotila_1_1vector_a0216a96304931174d3ace844ffb078a4.html#a0216a96304931174d3ace844ffb078a4">operator[]</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="structcotila_1_1vector_a7f18c2333643bed9b4eb6ac2e974c82b.html#a7f18c2333643bed9b4eb6ac2e974c82b">operator[]</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="structcotila_1_1vector.html#a90b3c86b9a7849d73b2228bc6beea4fe">size</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__vector_ga99971b5434a224fea4a4bc2834f5a661.html#ga99971b5434a224fea4a4bc2834f5a661">vector</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="group__vector_ga089f48222f235a9e885b4de00edeac2e.html#ga089f48222f235a9e885b4de00edeac2e">vector</a></td></tr>
+          <tr><td class="navtab"><a class="qindexHL" href="group__vector_ga089f48222f235a9e885b4de00edeac2e.html#ga089f48222f235a9e885b4de00edeac2e">vector</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__vector_ga903c655233ba8bc386b8362e89e17a4d.html#ga903c655233ba8bc386b8362e89e17a4d">vector</a></td></tr>
         </table>
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="a0f8379907b908417c341ed73d1c63cc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f8379907b908417c341ed73d1c63cc4">&#9670;&nbsp;</a></span>cend()</h2>
+<a id="ga089f48222f235a9e885b4de00edeac2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga089f48222f235a9e885b4de00edeac2e">&#9670;&nbsp;</a></span>vector() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, std::size_t N&gt; </div>
+template&lt;typename T , std::size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr const T* <a class="el" href="structcotila_1_1vector.html">cotila::vector</a>&lt; T, N &gt;::cend </td>
+          <td class="memname"><a class="el" href="structcotila_1_1vector.html">vector</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const &#160;</td>
+          <td class="paramname"><em>T</em>(&amp;)[N]</td><td>)</td>
+          <td> -&gt;  <a class="el" href="structcotila_1_1vector.html">vector</a>&lt; T, N &gt;</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>an iterator past the end</dd></dl>
-<p>Returns an iterator to the end of the vector. </p>
-
+<p>This deduction guide allows <a class="el" href="structcotila_1_1vector.html" title="A container representing a vector. ">cotila::vector</a> to be constructed like this: </p><div class="fragment"><div class="line"><a class="code" href="structcotila_1_1vector.html">cotila::vector</a> v{{1., 2.}}; <span class="comment">// deduces the type of v to be cotila::vector&lt;double, 2&gt;</span></div></div><!-- fragment --> 
 </div>
 </div>
     </td>

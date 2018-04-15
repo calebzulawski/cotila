@@ -229,6 +229,25 @@ Variables</h2></td></tr>
 <tr class="memitem:gafe4537f27bf3074d603de90a488c0fee"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, N, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_gafe4537f27bf3074d603de90a488c0fee.html#gafe4537f27bf3074d603de90a488c0fee">cotila::identity</a> = generate&lt;N, N&gt;([](std::size_t i, std::size_t j) { return T(i == j ? 1 : 0); })</td></tr>
 <tr class="memdesc:gafe4537f27bf3074d603de90a488c0fee"><td class="mdescLeft">&#160;</td><td class="mdescRight">the matrix identity  <a href="group__matrix_gafe4537f27bf3074d603de90a488c0fee.html#gafe4537f27bf3074d603de90a488c0fee">More...</a><br /></td></tr>
 <tr class="separator:gafe4537f27bf3074d603de90a488c0fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+cotila::matrix deduction guides</h2></td></tr>
+<tr class="memitem:ga91b197f2d4f4b18a2e245c0899049a92"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
+<tr class="memitem:ga91b197f2d4f4b18a2e245c0899049a92"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_ga91b197f2d4f4b18a2e245c0899049a92.html#ga91b197f2d4f4b18a2e245c0899049a92">cotila::matrix</a> (const T(&amp;)[M][N]) -&gt; <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt;</td></tr>
+<tr class="memdesc:ga91b197f2d4f4b18a2e245c0899049a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">deduction guide for aggregate initialization  <a href="group__matrix_ga91b197f2d4f4b18a2e245c0899049a92.html#ga91b197f2d4f4b18a2e245c0899049a92">More...</a><br /></td></tr>
+<tr class="separator:ga91b197f2d4f4b18a2e245c0899049a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3387d23fc92d0df93a48d8e3d16ef408"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
+<tr class="memitem:ga3387d23fc92d0df93a48d8e3d16ef408"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_ga3387d23fc92d0df93a48d8e3d16ef408.html#ga3387d23fc92d0df93a48d8e3d16ef408">cotila::matrix</a> (const T(&amp;)[M][N][2]) -&gt; <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; std::complex&lt; T &gt;, M, N &gt;</td></tr>
+<tr class="memdesc:ga3387d23fc92d0df93a48d8e3d16ef408"><td class="mdescLeft">&#160;</td><td class="mdescRight">deduction guide for complex-valued aggregate initialization  <a href="group__matrix_ga3387d23fc92d0df93a48d8e3d16ef408.html#ga3387d23fc92d0df93a48d8e3d16ef408">More...</a><br /></td></tr>
+<tr class="separator:ga3387d23fc92d0df93a48d8e3d16ef408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91b197f2d4f4b18a2e245c0899049a92"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
+<tr class="memitem:ga91b197f2d4f4b18a2e245c0899049a92"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_ga91b197f2d4f4b18a2e245c0899049a92.html#ga91b197f2d4f4b18a2e245c0899049a92">matrix</a> (const T(&amp;)[M][N]) -&gt; <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, M, N &gt;</td></tr>
+<tr class="memdesc:ga91b197f2d4f4b18a2e245c0899049a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">deduction guide for aggregate initialization  <a href="group__matrix_ga91b197f2d4f4b18a2e245c0899049a92.html#ga91b197f2d4f4b18a2e245c0899049a92">More...</a><br /></td></tr>
+<tr class="separator:ga91b197f2d4f4b18a2e245c0899049a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3387d23fc92d0df93a48d8e3d16ef408"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t M, std::size_t N&gt; </td></tr>
+<tr class="memitem:ga3387d23fc92d0df93a48d8e3d16ef408"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__matrix_ga3387d23fc92d0df93a48d8e3d16ef408.html#ga3387d23fc92d0df93a48d8e3d16ef408">matrix</a> (const T(&amp;)[M][N][2]) -&gt; <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; std::complex&lt; T &gt;, M, N &gt;</td></tr>
+<tr class="memdesc:ga3387d23fc92d0df93a48d8e3d16ef408"><td class="mdescLeft">&#160;</td><td class="mdescRight">deduction guide for complex-valued aggregate initialization  <a href="group__matrix_ga3387d23fc92d0df93a48d8e3d16ef408.html#ga3387d23fc92d0df93a48d8e3d16ef408">More...</a><br /></td></tr>
+<tr class="separator:ga3387d23fc92d0df93a48d8e3d16ef408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 </div><!-- contents -->

@@ -116,6 +116,19 @@ Functions</h2></td></tr>
 <tr class="memitem:gac452c3a573cf52217aa806c08897e95e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="group__vector_ga8e2f2bc322c85e7a55b1efda9cc18caf.html#ga8e2f2bc322c85e7a55b1efda9cc18caf">decltype</a>(auto) constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__vector_gac452c3a573cf52217aa806c08897e95e.html#gac452c3a573cf52217aa806c08897e95e">cotila::make_vector</a> (Args... args)</td></tr>
 <tr class="memdesc:gac452c3a573cf52217aa806c08897e95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructs a <code><a class="el" href="structcotila_1_1vector.html" title="A container representing a vector. ">cotila::vector</a></code> from arguments  <a href="group__vector_gac452c3a573cf52217aa806c08897e95e.html#gac452c3a573cf52217aa806c08897e95e">More...</a><br /></td></tr>
 <tr class="separator:gac452c3a573cf52217aa806c08897e95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">cotila::vector deduction guides</div></td></tr>
+<tr class="memitem:ga99971b5434a224fea4a4bc2834f5a661"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... U&gt; </td></tr>
+<tr class="memitem:ga99971b5434a224fea4a4bc2834f5a661"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__vector_ga99971b5434a224fea4a4bc2834f5a661.html#ga99971b5434a224fea4a4bc2834f5a661">cotila::vector</a> (T, U...) -&gt; vector&lt; std::enable_if_t&lt;(std::is_same_v&lt; T, U &gt; &amp;&amp;...), T &gt;, 1+sizeof...(U)&gt;</td></tr>
+<tr class="memdesc:ga99971b5434a224fea4a4bc2834f5a661"><td class="mdescLeft">&#160;</td><td class="mdescRight">deduction guide for uniform initialization  <a href="group__vector_ga99971b5434a224fea4a4bc2834f5a661.html#ga99971b5434a224fea4a4bc2834f5a661">More...</a><br /></td></tr>
+<tr class="separator:ga99971b5434a224fea4a4bc2834f5a661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga089f48222f235a9e885b4de00edeac2e"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:ga089f48222f235a9e885b4de00edeac2e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__vector_ga089f48222f235a9e885b4de00edeac2e.html#ga089f48222f235a9e885b4de00edeac2e">cotila::vector</a> (const T(&amp;)[N]) -&gt; vector&lt; T, N &gt;</td></tr>
+<tr class="memdesc:ga089f48222f235a9e885b4de00edeac2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">deduction guide for aggregate initialization  <a href="group__vector_ga089f48222f235a9e885b4de00edeac2e.html#ga089f48222f235a9e885b4de00edeac2e">More...</a><br /></td></tr>
+<tr class="separator:ga089f48222f235a9e885b4de00edeac2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga903c655233ba8bc386b8362e89e17a4d"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:ga903c655233ba8bc386b8362e89e17a4d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__vector_ga903c655233ba8bc386b8362e89e17a4d.html#ga903c655233ba8bc386b8362e89e17a4d">cotila::vector</a> (const T(&amp;)[N][2]) -&gt; vector&lt; std::complex&lt; T &gt;, N &gt;</td></tr>
+<tr class="memdesc:ga903c655233ba8bc386b8362e89e17a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">deduction guide for complex-valued aggregate initialization  <a href="group__vector_ga903c655233ba8bc386b8362e89e17a4d.html#ga903c655233ba8bc386b8362e89e17a4d">More...</a><br /></td></tr>
+<tr class="separator:ga903c655233ba8bc386b8362e89e17a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
