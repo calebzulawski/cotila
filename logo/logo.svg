@@ -5,7 +5,7 @@
         font-family: "Montserrat";
         font-weight: 100;
         font-style: normal;
-        src: url('Montserrat-Regular.woff2') format('woff2');
+        src: url(Montserrat-Regular.woff2) format("woff2");
       }
       text {
         font-size: 30px;
