@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Cotila: cotila::elementwise</title>
+<title>Cotila: cotila::as_row</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,11 +75,11 @@ $(function() {
       <div class="navtab">
         <table>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga8d7e2e96cb6a27c2c7b1c7fa80a10205.html#ga8d7e2e96cb6a27c2c7b1c7fa80a10205">as_column</a></td></tr>
-          <tr><td class="navtab"><a class="qindex" href="group__matrix_gabe13fc2af9a7248b72ed2adf673f191f.html#gabe13fc2af9a7248b72ed2adf673f191f">as_row</a></td></tr>
+          <tr><td class="navtab"><a class="qindexHL" href="group__matrix_gabe13fc2af9a7248b72ed2adf673f191f.html#gabe13fc2af9a7248b72ed2adf673f191f">as_row</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga00d1a0eb77b4901ce03f7dd1c5aaa2ea.html#ga00d1a0eb77b4901ce03f7dd1c5aaa2ea">cast</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gac1a259b23ef5a657fbba5e7e7824da28.html#gac1a259b23ef5a657fbba5e7e7824da28">conj</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gac3e7d1c060f394ab9b6cf49eef37f53a.html#gac3e7d1c060f394ab9b6cf49eef37f53a">det</a></td></tr>
-          <tr><td class="navtab"><a class="qindexHL" href="group__matrix_ga083f6d1b328cab1e54cd0bb94bf16884.html#ga083f6d1b328cab1e54cd0bb94bf16884">elementwise</a></td></tr>
+          <tr><td class="navtab"><a class="qindex" href="group__matrix_ga083f6d1b328cab1e54cd0bb94bf16884.html#ga083f6d1b328cab1e54cd0bb94bf16884">elementwise</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga2ecb0df6b9ece19f85c6b9effc4117a2.html#ga2ecb0df6b9ece19f85c6b9effc4117a2">fill</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_ga8000419fbf90972f934c5dd7e2686c5d.html#ga8000419fbf90972f934c5dd7e2686c5d">generate</a></td></tr>
           <tr><td class="navtab"><a class="qindex" href="group__matrix_gaac5d4dca1915e7395204182f11cdd4c9.html#gaac5d4dca1915e7395204182f11cdd4c9">hermitian</a></td></tr>
@@ -121,49 +121,31 @@ $(function() {
       </div>
    </td>
    <td valign="top" class="mempage">
-<a id="ga083f6d1b328cab1e54cd0bb94bf16884"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga083f6d1b328cab1e54cd0bb94bf16884">&#9670;&nbsp;</a></span>elementwise()</h2>
+<a id="gabe13fc2af9a7248b72ed2adf673f191f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabe13fc2af9a7248b72ed2adf673f191f">&#9670;&nbsp;</a></span>as_row()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename F , typename T , typename... Matrices, typename U  = std::invoke_result_t&lt;F, T, typename Matrices::value_type...&gt;, std::size_t N = detail::all_same_value&lt;std::size_t, Matrices::column_size...&gt;::value, std::size_t M = detail::all_same_value&lt;std::size_t, Matrices::row_size...&gt;::value&gt; </div>
+template&lt;typename T , std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt;U, N, M&gt; cotila::elementwise </td>
+          <td class="memname">constexpr <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt;T, 1, N&gt; cotila::as_row </td>
           <td>(</td>
-          <td class="paramtype">F&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="structcotila_1_1vector.html">vector</a>&lt; T, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structcotila_1_1matrix.html">matrix</a>&lt; T, N, M &gt; &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Matrices &amp;...&#160;</td>
-          <td class="paramname"><em>matrices</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>a function of type F that operates on many scalars of type T and returns a scalar of type U </td></tr>
-    <tr><td class="paramname">m</td><td>an \( N \times M \) matrix of type T </td></tr>
-    <tr><td class="paramname">matrices</td><td>additional \( N \times M \) matrices of type T </td></tr>
+    <tr><td class="paramname">v</td><td>an N-vector of type T </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>an \( N \times M \) matrix of type T with elements described by \( f\left(\textbf{m}_{ij}, \ldots\right) \)</dd></dl>
-<p>Applies a function elementwise between many matrices. </p>
+<dl class="section return"><dt>Returns</dt><dd>a \( 1 \times N \) matrix of type T</dd></dl>
+<p>Converts a vector into a row vector. </p>
 
 </div>
 </div>
