@@ -205,6 +205,28 @@ constexpr matrix<T, P, Q> reshape(const matrix<T, M, N> &m) {
   });
 }
 
+/** @brief converts a vector into a column vector
+ *  @param v an N-vector of type T
+ *  @returns an \f$ N \times 1 \f$ matrix of type T
+ *
+ *  Converts a vector into a column vector.
+ */
+template <typename T, std::size_t N>
+constexpr matrix<T, N, 1> as_column(const vector<T, N> &v) {
+  return generate<N, 1>([&v](auto i, auto) { return v[i]; });
+}
+
+/** @brief converts a vector into a row vector
+ *  @param v an N-vector of type T
+ *  @returns a \f$ 1 \times N \f$ matrix of type T
+ *
+ *  Converts a vector into a row vector.
+ */
+template <typename T, std::size_t N>
+constexpr matrix<T, 1, N> as_row(const vector<T, N> &v) {
+  return generate<1, N>([&v](auto, auto j) { return v[j]; });
+}
+
 /** }@*/
 
 } // namespace cotila
