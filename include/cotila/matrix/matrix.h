@@ -25,7 +25,7 @@ namespace cotila {
 template <typename T, std::size_t N, std::size_t M> struct matrix {
   static_assert(N != 0 && M != 0,
                 "matrix must have have positive dimensions");
-  COTILA_DETAIL_ASSERT_ARITHMETIC(T);
+  COTILA_DETAIL_ASSERT_ARITHMETIC(T)
 
   using value_type = T;
   using size_type = std::size_t;

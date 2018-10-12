@@ -21,7 +21,7 @@
       "complex<float>, complex<double>, and complex<long double>)");
 
 #define COTILA_DETAIL_ASSERT_ARITHMETIC(T)                                     \
-  COTILA_DETAIL_ASSERT_VALID_COMPLEX(T);                                       \
+  COTILA_DETAIL_ASSERT_VALID_COMPLEX(T)                                        \
   static_assert(std::is_arithmetic<                                            \
                     typename cotila::detail::remove_complex<T>::type>::value,  \
                 "argument must be a (real or complex) arithmetic type");
