@@ -2,8 +2,6 @@
   <img src="logo.svg" width="30%" height="auto">
 </div>
 
-------
-
 [![Build Status](https://travis-ci.org/calebzulawski/cotila.svg?branch=master)](https://travis-ci.org/calebzulawski/cotila)
 
 Copyright 2018 Caleb Zulawski
