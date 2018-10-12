@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo/logo.svg" width="30%" height="auto">
+  <img src="logo.svg" width="30%" height="auto">
 </div>
 
 ------
@@ -12,8 +12,13 @@ Licensed under the Apache License, Version 2.0
 
 ## Overview
 
+<<<<<<< HEAD
 Cotila (**co**mpile-**ti**me **l**inear **a**lgebra) provides a set of linear algebra functions in C++ intended for use during compile time.
 All functions available in Cotila are ***constexpr***, meaning they can be used at compile-time to generate constants and lookup tables in a type-safe, transparent manner.
+=======
+Cotila (**co**mpile-**ti**me **l**inear **a**lgebra) is a header-only library that provides a set of linear algebra functions in C++ intended for use during compile time. 
+All functions available in Cotila are ***constexpr***, meaning they can be used at compile-time to generate constants and lookup tables in a type-safe, readable, and maintainable manner.
+>>>>>>> 54b95c6... Flatten logo font and clean up documentation and readme
 
 ## Installation
 
