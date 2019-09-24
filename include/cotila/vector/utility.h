@@ -67,8 +67,10 @@ constexpr vector<T, N> cast(const vector<U, N> &v) {
 template <std::size_t N, typename T>
 constexpr vector<T, N> iota(T value = T()) {
   vector<T, N> seq = {};
-  for (auto &x : seq)
-    x = value++;
+  for (auto &x : seq) {
+    x = value;
+    value += 1; // equivalent to value++, see GCC Bug 91705
+  }
   return seq;
 }
 

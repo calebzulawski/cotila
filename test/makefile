@@ -1,8 +1,8 @@
 INCLUDES=../include
-CFLAGS=-I$(INCLUDES) -std=c++17 -Werror -Wall -Wextra -Wpedantic -Wno-missing-braces
+CXXFLAGS+=-I$(INCLUDES) -std=c++17 -Werror -Wall -Wextra -Wpedantic -Wno-missing-braces
 
 test: test.cpp
-	$(CXX) -o $@ $^ $(CFLAGS)
+	$(CXX) -o $@ $^ $(CXXFLAGS)
 
 .PHONY: clean
 
