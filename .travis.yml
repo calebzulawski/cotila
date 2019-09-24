@@ -6,11 +6,11 @@ matrix:
   include:
     - os: linux
       env:
-        - MATRIX_IMAGE="calebzulawski/cotila-base"
+        - MATRIX_IMAGE="gcc"
         - MATRIX_CMD="/usr/bin/make clean && /usr/bin/make test"
     - os: linux
       env:
-        - MATRIX_IMAGE="calebzulawski/cotila-clang"
+        - MATRIX_IMAGE="silkeh/clang"
         - MATRIX_CMD="/usr/bin/make clean && /usr/bin/make test"
     - os: linux
       env:
