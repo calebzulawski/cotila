@@ -11,7 +11,7 @@ matrix:
     - os: linux
       env:
         - MATRIX_IMAGE="silkeh/clang"
-        - MATRIX_CMD="/usr/bin/make clean && CXX=clang++ /usr/bin/make test"
+        - MATRIX_CMD="/usr/bin/make clean && CXX=clang++ CXXFLAGS=-stdlib=libc++ /usr/bin/make test"
     - os: linux
       env:
         - MATRIX_IMAGE="calebzulawski/cotila-docs"
