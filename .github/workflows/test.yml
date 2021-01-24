@@ -9,7 +9,8 @@ jobs:
         os:
           - macos-latest
           - ubuntu-latest
-          - windows-latest
+          # Disable MSVC pending fix to ICE
+          #- windows-latest
 
     runs-on: ${{ matrix.os }}
     
