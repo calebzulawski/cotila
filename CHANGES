@@ -1,5 +1,6 @@
 2021-01-23 version 1.2.0
   * Added CMake build supporting tests and documentation
+  * Fixed some compiler warnings
 
 2019-09-24 version 1.1.1
   * Fixed compilation error in GCC 9 (due to GCC bug 91705)
