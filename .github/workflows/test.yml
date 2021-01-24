@@ -1,0 +1,23 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build and Test Cotila
+      run: |
+        cmake -B build .
+        cmake --build build
+        cmake --build build --target test

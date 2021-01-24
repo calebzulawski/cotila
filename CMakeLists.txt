@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
-project(cotila VERSION 1.1.2 LANGUAGES CXX DESCRIPTION "A compile time linear algebra system")
+project(cotila VERSION 1.2.0 LANGUAGES CXX DESCRIPTION "A compile time linear algebra system")
 
 option(BUILD_TESTING "Build Cotila tests" ON)
-option(BUILD_DOCUMENTATION "Build Doxygen documentation" OFF)
+option(BUILD_DOCS "Build Doxygen documentation" OFF)
 
 # Interface target
 include(GNUInstallDirs)
@@ -25,8 +25,9 @@ if (BUILD_DOCS)
 	set(DOXYGEN_SEPARATE_MEMBER_PAGES "YES")
 	set(DOXYGEN_EXCLUDE_PATTERNS "*/detail/*")
 	set(DOXYGEN_USE_MDFILE_AS_MAINPAGE "mainpage.md")
+    set(DOXYGEN_LAYOUT_FILE "layout.xml")
 
-	doxygen_add_docs(doc include/ mainpage.md COMMENT "Generating documentation")
+	doxygen_add_docs(doc include/ mainpage.md layout.xml COMMENT "Generating documentation")
 endif()
 
 # installing
