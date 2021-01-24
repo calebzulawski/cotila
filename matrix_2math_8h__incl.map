@@ -1,8 +1,0 @@
-<map id="include/cotila/matrix/math.h" name="include/cotila/matrix/math.h">
-<area shape="rect" id="node3" href="$scalar_2math_8h.html" title="Mathematical operations on scalar values. " alt="" coords="166,244,317,271"/>
-<area shape="rect" id="node7" href="$vector_8h.html" title="Contains the definition of the cotila::vector class. " alt="" coords="475,326,634,353"/>
-<area shape="rect" id="node11" href="$vector_2math_8h.html" title="Mathematical operations on vectors. " alt="" coords="306,169,459,196"/>
-<area shape="rect" id="node14" href="$matrix_8h.html" title="Contains the definition of the cotila::matrix class. " alt="" coords="638,169,802,196"/>
-<area shape="rect" id="node15" href="$matrix_2utility_8h_source.html" title="cotila/matrix/utility.h" alt="" coords="641,95,799,121"/>
-<area shape="rect" id="node12" href="$vector_2utility_8h_source.html" title="cotila/vector/utility.h" alt="" coords="544,244,699,271"/>
-</map>
