@@ -11,7 +11,7 @@ static_assert(sqrt(625.) == 25, "sqrt");
 
 static_assert(sqrt(625.f) == 25, "sqrt");
 
-static_assert(exponentiate(5, 2) == 25, "exponentiate");
+static_assert(exponentiate(5.5, 2) == 30.25, "exponentiate");
 
 static_assert(nthroot(27, 3) == 3, "nth root");
 

@@ -1,7 +1,7 @@
 <div align="center">
   <img src="logo.svg" width="30%" height="auto">
 
-[![Build Status](https://travis-ci.org/calebzulawski/cotila.svg?branch=master)](https://travis-ci.org/calebzulawski/cotila)
+[![Build Status](https://github.com/calebzulawski/cotila/workflows/Test/badge.svg)](https://github.com/calebzulawski/cotila/actions)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub release](https://img.shields.io/github/release/calebzulawski/cotila.svg)](https://github.com/calebzulawski/cotila/releases)
 

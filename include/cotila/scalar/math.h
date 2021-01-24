@@ -39,7 +39,7 @@ constexpr double sqrt(double x) {
  *
  *  Computes the square root.
  */
-constexpr float sqrt(float x) { return sqrt(double(x)); }
+constexpr float sqrt(float x) { return float(sqrt(double(x))); }
 
 /** @brief computes the absolute value
  *  @param x argument
@@ -72,10 +72,10 @@ constexpr double exponentiate(double x, int n) {
   double y = 1.;
   while (n > 1) {
     if (n % 2 == 0) {
-      n = n / 2.;
+      n /= 2;
     } else {
       y *= x;
-      n = (n - 1.) / 2.;
+      n = (n - 1) / 2;
     }
     x *= x;
   }
