@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(cotila VERSION 1.2.0 LANGUAGES CXX DESCRIPTION "A compile time linear algebra system")
+project(cotila VERSION 1.2.0 LANGUAGES CXX DESCRIPTION "A compile time linear algebra system" HOMEPAGE_URL "https://github.com/calebzulawski/cotila")
 
 option(BUILD_TESTING "Build Cotila tests" ON)
 option(BUILD_DOCS "Build Doxygen documentation" OFF)
@@ -32,16 +32,19 @@ endif()
 
 # installing
 install(DIRECTORY include/cotila DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(TARGETS cotila EXPORT cotila-config DESTINATION ${CMAKE_INSTALL_LIBDIR})
-install(EXPORT cotila-config NAMESPACE Cmsl:: DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/cotila")
+install(TARGETS cotila EXPORT cotila-config DESTINATION ${CMAKE_INSTALL_DATADIR})
+install(EXPORT cotila-config NAMESPACE cotila:: DESTINATION "${CMAKE_INSTALL_DATADIR}/cmake/cotila")
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${PROJECT_BINARY_DIR}/cotila-configVersion.cmake"
 	VERSION ${PROJECT_VERSION}
 	COMPATIBILITY AnyNewerVersion
+	ARCH_INDEPENDENT
 )
+install(FILES "${PROJECT_BINARY_DIR}/cotila-configVersion.cmake" DESTINATION "${CMAKE_INSTALL_DATADIR}/cmake/cotila")
 
 # testing
 if(BUILD_TESTING)
 	enable_testing()
 	add_subdirectory("test/")
 endif()
+
