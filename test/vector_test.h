@@ -2,10 +2,10 @@
 #define COTILA_VECTOR_TEST_H_
 
 #include <complex>
+#include <string>
 #include <cotila/cotila.h>
 
-namespace cotila {
-namespace test {
+namespace cotila::test {
 
 static_assert(make_vector(1, 2, 3) == vector{1, 2, 3},
               "make_vector and uniform initialization deduction guide");
@@ -85,7 +85,11 @@ static_assert(real(vector{{{-1., 2.}, {1., -2.}}}) == vector{-1., 1.}, "real");
 
 static_assert(imag(vector{{{-1., 2.}, {1., -2.}}}) == vector{2., -2.}, "imag");
 
-} // namespace test
-} // namespace cotila
+static_assert(sum(vector{1,2,3}) == 6, "vector sum of integers");
+
+static_assert(abs(sum(vector{0.1,0.2,0.3}) - 0.6) < 1e-5, "vector sum of floating");
+
+
+} // namespace cotila::test
 
 #endif // COTILA_VECTOR_TEST_H_

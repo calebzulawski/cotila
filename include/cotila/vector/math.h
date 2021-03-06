@@ -97,7 +97,7 @@ constexpr T dot(const vector<T, N> &a, const vector<T, N> &b) {
  *  Computes the sum of the elements of a vector.
  */
 template <typename T, std::size_t N> constexpr T sum(const vector<T, N> &v) {
-  return accumulate(v, 0, std::plus<T>());
+  return accumulate(v, static_cast<T>(0), std::plus<T>());
 }
 
 /** @brief computes the minimum valued element
