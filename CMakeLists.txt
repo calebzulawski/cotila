@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(cotila VERSION 1.2.0 LANGUAGES CXX DESCRIPTION "A compile time linear algebra system" HOMEPAGE_URL "https://github.com/calebzulawski/cotila")
+project(cotila VERSION 1.2.1 LANGUAGES CXX DESCRIPTION "A compile time linear algebra system" HOMEPAGE_URL "https://github.com/calebzulawski/cotila")
 
 option(BUILD_TESTING "Build Cotila tests" ON)
 option(BUILD_DOCS "Build Doxygen documentation" OFF)

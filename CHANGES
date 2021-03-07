@@ -1,3 +1,7 @@
+2021-03-06 version 1.2.1
+  * Fixed `sum` using integer accumulator with floating point input
+  * Various build system improvements
+
 2021-01-23 version 1.2.0
   * Added CMake build supporting tests and documentation
   * Fixed some compiler warnings
