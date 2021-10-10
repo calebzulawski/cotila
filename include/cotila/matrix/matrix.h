@@ -43,7 +43,7 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
    */
   constexpr vector<T, M> row(std::size_t i) const {
     if (i >= N)
-      throw "index out of range";
+      throw std::out_of_range("Row index is out-of-range");
     return generate<M>([i, this](std::size_t j) { return arrays[i][j]; });
   }
 
@@ -55,7 +55,7 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
    */
   constexpr vector<T, N> column(std::size_t i) const {
     if (i >= M)
-      throw "index out of range";
+      throw std::out_of_range("Column index is out-of-range");
     return generate<N>([i, this](std::size_t j) { return arrays[j][i]; });
   }
 
@@ -69,16 +69,22 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
    * ease the writing of generic algorithm
    */
   constexpr T &at(std::size_t row, std::size_t column = 0) {
-    if (row >= N || column >= M)
-      throw "index out of range";
-    return arrays[row][column];
+    return get_real_by_name_impl(*this, row, column);
   }
 
+  /**
+   * @copydoc at
+   */
   constexpr const T &at(std::size_t row, std::size_t column = 0) const {
+    return get_real_by_name_impl(*this, row, column);
+  }
+
+  template <typename Self>
+  static constexpr auto &get_real_by_name_impl(Self &self, std::size_t row, std::size_t column = 0) {
     if (row >= N || column >= M)
       throw "index out of range";
-    return arrays[row][column];
-  }
+    return self.arrays[row][column];
+  } ///< @private
 
   /** @brief access specified element
    *  @param i index of the row
