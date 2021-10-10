@@ -19,6 +19,13 @@ struct matrix;
 template <typename T, std::size_t N, typename Container>
 constexpr matrix<T, N, 1> from_initializer(Container &);
 
+/** @brief A container representing a vector
+ *  @tparam T scalar type to contain
+ *  @tparam N number of rows
+ *
+ *  `cotila::vector` is a container representing a vector.
+ *  It inherits all its properties from `̀cotila::matrix`.
+ */
 template <typename T, std::size_t N>
 struct vector : public matrix<T, N, 1> {
   constexpr vector() = default;

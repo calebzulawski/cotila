@@ -13,7 +13,7 @@ namespace cotila {
 
 
 /** @brief accumulates an operation across a matrix
- *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @param m an \f$ N \times M \f$ matrix of type T
  *  @param init the initial value
  *  @param f a function of type F that operates between U and matrix elements of type T
  *  @return \f$ f\left(f\left(\ldots f\left(\textrm{init}, \textbf{v}_1\right), \ldots\right), \textbf{v}_N \right) \f$
@@ -119,10 +119,10 @@ constexpr matrix<T, N, M> fill(T value) {
 }
 
 /** @brief shifts matrix elements
- *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @param m an \f$ N \times M \f$ matrix of type T
  *  @param n the amount to shift each element
- *  @return an N-vector of type T \f$ \textbf{v} \gg n \f$ such that
- *  \f$ \left(\textbf{v} \gg n\right)_i = \textbf{v}_{(i + n)\ \textrm{mod}\ N} \f$
+ *  @return an \f$ N \times M \f$ matrix of type T such that
+ *  \f$ \left(\textbf{m} \gg n\right)_{ij} = \textbf{v}_{kj} with k = (i + n)\ \textrm{mod}\ N \f$
  *
  *  Rotates a matrix by shifting its elements vertically.
  */

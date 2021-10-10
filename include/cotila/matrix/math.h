@@ -68,7 +68,7 @@ constexpr matrix<detail::remove_complex_t<T>, N, M> abs(const matrix<T, N, M> &v
 }
 
 /** @brief computes the sum of elements of a matrix
- *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @param m an \f$ N \times M \f$ matrix of type T
  *  @return a scalar \f$ \sum\limits_{i} m_i \f$ of type T
  *
  *  Computes the sum of the elements of a matrix.
@@ -78,7 +78,7 @@ template <typename T, std::size_t N, std::size_t M> constexpr T sum(const matrix
 }
 
 /** @brief computes the minimum valued element
- *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @param m an \f$ N \times M \f$ matrix of type T
  *  @return a scalar \f$ v_i \f$ of type T where \f$ v_i \leq v_j,\ \forall j \f$
  *
  *  Computes the minimum valued element of a matrix.
@@ -88,7 +88,7 @@ template <typename T, std::size_t N, std::size_t M> constexpr T min(const matrix
 }
 
 /** @brief computes the maximum valued element
- *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @param m an \f$ N \times M \f$ matrix of type T
  *  @return a scalar \f$ v_i \f$ of type T where \f$ v_i \geq v_j,\ \forall j \f$
  *
  *  Computes the maximum valued element of a matrix.
@@ -326,7 +326,7 @@ constexpr T trace(const matrix<T, M, M> &m) {
 }
 
 /** @brief computes the elementwise square root
- *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @param m an \f$ N \times M \f$ matrix of type T
  *  @return an \f$ M \times N \f$ matrix of type T, the element wise
  *  square root of \f$ \textbf{m} \f$
  *  Computes the elementwise square root of a matrix.
