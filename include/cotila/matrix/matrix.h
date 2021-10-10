@@ -69,20 +69,20 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
    * ease the writing of generic algorithm
    */
   constexpr T &at(std::size_t row, std::size_t column = 0) {
-    return get_real_by_name_impl(*this, row, column);
+    return at_impl(*this, row, column);
   }
 
   /**
    * @copydoc at
    */
   constexpr const T &at(std::size_t row, std::size_t column = 0) const {
-    return get_real_by_name_impl(*this, row, column);
+    return at_impl(*this, row, column);
   }
 
   template <typename Self>
-  static constexpr auto &get_real_by_name_impl(Self &self, std::size_t row, std::size_t column = 0) {
+  static constexpr auto &at_impl(Self &self, std::size_t row, std::size_t column = 0) {
     if (row >= N || column >= M)
-      throw "index out of range";
+      throw std::out_of_range("Indexes out of range");
     return self.arrays[row][column];
   } ///< @private
 
@@ -162,7 +162,7 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
 template <typename T, std::size_t N, typename Container>
 constexpr matrix<T, N, 1> from_initializer(Container & init) {
   if(std::size(init) != N)
-    throw "The initializer has not the same size than the vector";
+    throw std::invalid_argument("The initializer has not the same size than the vector");
 
   matrix<T, N, 1> ret{};
   for (std::size_t i = 0; i < N; ++i)

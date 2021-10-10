@@ -309,7 +309,7 @@ constexpr T det(const matrix<T, M, M> &m) {
 template <typename T, std::size_t M>
 constexpr matrix<T, M, M> inverse(const matrix<T, M, M> &m) {
   if (rank(m) < M)
-    throw "matrix is not invertible";
+    throw std::logic_error("matrix is not invertible");
   return submat<M, M>(rref(horzcat(m, identity<T, M>)), 0, M);
 }
 

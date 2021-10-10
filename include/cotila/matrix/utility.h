@@ -243,7 +243,8 @@ constexpr matrix<T, M + N, P> vertcat(const matrix<T, M, P> &a, const matrix<T, 
  */
 template<std::size_t P, std::size_t Q, std::size_t M, std::size_t N, typename T>
 constexpr matrix<T, P, Q> submat(const matrix<T, M, N> &m, std::size_t a, std::size_t b){
-    if ((a + P > M) || (b + Q > N)) throw "index out of range";
+    if ((a + P > M) || (b + Q > N))
+      throw std::out_of_range("Index out of range");
     return generate<P, Q>([&m, &a, &b](std::size_t i, std::size_t j){
         return m[a + i][b + j];
     });

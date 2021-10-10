@@ -23,7 +23,7 @@ namespace cotila {
  */
 constexpr double sqrt(double x) {
   if (x < 0)
-    throw "sqrt argument must be positive";
+    throw std::domain_error("sqrt argument must be positive");
   double prev = 0;
   double est = (1 + x) / 2;
   while (prev != est) {
@@ -94,7 +94,7 @@ constexpr double exponentiate(double x, int n) {
  */
 constexpr double nthroot(double x, int n) {
   if (x < 0)
-    throw "nth root argument must be positive";
+    throw std::domain_error("nth root argument must be positive");
   double prev = -1;
   double est = 1;
   while (prev != est) {
