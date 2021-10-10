@@ -6,7 +6,7 @@
 #define COTILA_MATRIX_MATRIX_H_
 
 #include <array>
-#include <cotila/vector/utility.h>
+#include <cotila/matrix/utility.h>
 #include <cotila/vector/vector.h>
 #include <cotila/detail/assert.h>
 #include <tuple>
@@ -31,6 +31,7 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
   using size_type = std::size_t;
   static constexpr size_type column_size = N; ///< Number of rows
   static constexpr size_type row_size = M;    ///< Number of columns
+  static constexpr size_type size = N * M;    ///< Number of elements
 
   /** @name Element access */
   ///@{
@@ -58,6 +59,27 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
     return generate<N>([i, this](std::size_t j) { return arrays[j][i]; });
   }
 
+  /**
+   * @brief acess specified element
+   * @param row selected line
+   * @param column selected row
+   * @return the selected scalar element
+   *
+   * Allow an access independent to the operator[],
+   * ease the writing of generic algorithm
+   */
+  constexpr T &at(std::size_t row, std::size_t column = 0) {
+    if (row >= N || column >= M)
+      throw "index out of range";
+    return arrays[row][column];
+  }
+
+  constexpr const T &at(std::size_t row, std::size_t column = 0) const {
+    if (row >= N || column >= M)
+      throw "index out of range";
+    return arrays[row][column];
+  }
+
   /** @brief access specified element
    *  @param i index of the row
    *  @return pointer to the specified row
@@ -67,11 +89,62 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
    *  row pointer.  For a matrix `m`, accessing the element in the 5th row
    *  and 3rd column can be done with `m[5][3]`.
    */
-  constexpr T *operator[](std::size_t i) { return arrays[i]; }
+  template <std::size_t L = M>
+  typename std::enable_if<L == 1, T&>::type
+  constexpr operator[](std::size_t i) { return arrays[i][0]; }
 
   /// @copydoc operator[]
-  constexpr T const *operator[](std::size_t i) const { return arrays[i]; }
+  template <std::size_t L = M>
+  typename std::enable_if<L == 1, const T&>::type
+  constexpr operator[](std::size_t i) const { return arrays[i][0]; }
+
+  /// @copydoc operator[]
+  template <std::size_t L = M>
+  typename std::enable_if<L != 1, T*>::type
+  constexpr operator[](std::size_t i) { return arrays[i]; }
+
+  /// @copydoc operator[]
+  template <std::size_t L = M>
+  typename std::enable_if<L != 1, const T*>::type
+  constexpr operator[](std::size_t i) const { return arrays[i]; }
   ///@}
+
+  /** @name Iterators */
+  ///@{
+  /** @brief returns an iterator to the beginning
+   *  @return an iterator to the beginning
+   *
+   *  Returns an iterator to the beginning of the matrix.
+   */
+  constexpr T *begin() noexcept { return *arrays; }
+
+  /** @brief returns an iterator to the end
+   *  @return an iterator past the end
+   *
+   *  Returns an iterator to the end of the matrix.
+   */
+  constexpr T *end() noexcept { return *(arrays + size); }
+
+  /// @copydoc begin
+  constexpr const T *cbegin() const noexcept { return *arrays; }
+  /// @copydoc begin
+  constexpr const T *begin() const noexcept { return *arrays; }
+
+  /// @copydoc end
+  constexpr const T *cend() const noexcept { return *(arrays + size); }
+  /// @copydoc end
+  constexpr const T *end() const noexcept { return *(arrays + size); }
+  ///@}
+
+  constexpr operator vector<T, N>() const {
+    vector<T, N> ret{};
+    for (size_type i = 0; i < column_size; ++i)
+            ret[i] = arrays[i][0];
+    return ret;
+  }
+
+  template <typename U, std::size_t O, typename Container>
+  friend constexpr matrix<U, O, 1> from_initializer(Container &);
 
   T arrays[N][M]; ///< @private
 };
@@ -79,6 +152,18 @@ template <typename T, std::size_t N, std::size_t M> struct matrix {
 /** \addtogroup matrix
  *  @{
  */
+
+template <typename T, std::size_t N, typename Container>
+constexpr matrix<T, N, 1> from_initializer(Container & init) {
+  if(std::size(init) != N)
+    throw "The initializer has not the same size than the vector";
+
+  matrix<T, N, 1> ret{};
+  for (std::size_t i = 0; i < N; ++i)
+    ret.arrays[i][0] = std::data(init)[i];
+
+  return ret;
+} ///< @private
 
 /** @name cotila::matrix deduction guides */
 ///@{

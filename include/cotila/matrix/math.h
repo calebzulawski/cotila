@@ -7,10 +7,9 @@
 #include<algorithm>
 
 #include <cotila/scalar/math.h>
-#include <cotila/vector/vector.h>
-#include <cotila/vector/math.h>
 #include <cotila/matrix/matrix.h>
 #include <cotila/matrix/utility.h>
+#include <cotila/vector/math.h>
 #include <cotila/detail/assert.h>
 
 namespace cotila {
@@ -31,7 +30,7 @@ constexpr matrix<T, M, N> conj(const matrix<T, M, N> &m) {
   return elementwise(cotila::conj<T>, m);
 }
 
-/** @brief computes the elementwise real 
+/** @brief computes the elementwise real
  *  @param m an \f$ M \times N \f$ matrix of type T
  *  @return an \f$ M \times N \f$ matrix \f$\textbf{m}\f$ of type T such that
  *  \f$ \left(\textbf{m}}_{ij} = \mathbb{R}\{\textbf{m}_{ij}\},\ \forall i,j \f$
@@ -44,7 +43,7 @@ real(const matrix<T, M, N> &m) {
   return elementwise([](auto i) { return std::real(i); }, m);
 }
 
-/** @brief computes the elementwise imag 
+/** @brief computes the elementwise imag
  *  @param m an \f$ M \times N \f$ matrix of type T
  *  @return an \f$ M \times N \f$ matrix \f$\textbf{m}\f$ of type T such that
  *  \f$ \left(\textbf{m}}_{ij} = \mathbb{I}\{\textbf{m}_{ij}\},\ \forall i,j \f$
@@ -55,6 +54,47 @@ template <typename T, std::size_t M, std::size_t N>
 constexpr matrix<detail::remove_complex_t<T>, M, N>
 imag(const matrix<T, M, N> &m) {
   return elementwise([](auto i) { return std::imag(i); }, m);
+}
+
+/** @brief computes the elementwise absolute value
+ *  @param v an N-vector of type T
+ *  @return an N-vector \f$ \begin{bmatrix} \lvert v_1 \rvert & \ldots & \lvert v_N \rvert \end{bmatrix} \f$ of type T
+ *
+ *  Computes the elementwise absolute value of a matrix.
+ */
+template <typename T, std::size_t N, std::size_t M>
+constexpr matrix<detail::remove_complex_t<T>, N, M> abs(const matrix<T, N, M> &v) {
+  return elementwise(abs<T>, v);
+}
+
+/** @brief computes the sum of elements of a matrix
+ *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @return a scalar \f$ \sum\limits_{i} m_i \f$ of type T
+ *
+ *  Computes the sum of the elements of a matrix.
+ */
+template <typename T, std::size_t N, std::size_t M> constexpr T sum(const matrix<T, N, M> &v) {
+  return accumulate(v, T{}, std::plus<T>());
+}
+
+/** @brief computes the minimum valued element
+ *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @return a scalar \f$ v_i \f$ of type T where \f$ v_i \leq v_j,\ \forall j \f$
+ *
+ *  Computes the minimum valued element of a matrix.
+ */
+template <typename T, std::size_t N, std::size_t M> constexpr T min(const matrix<T, N, M> &m) {
+  return accumulate(m, m[0], [](T a, T b) { return std::min(a, b); });
+}
+
+/** @brief computes the maximum valued element
+ *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @return a scalar \f$ v_i \f$ of type T where \f$ v_i \geq v_j,\ \forall j \f$
+ *
+ *  Computes the maximum valued element of a matrix.
+ */
+template <typename T, std::size_t N, std::size_t M> constexpr T max(const matrix<T, N, M> &m) {
+  return accumulate(m, m[0], [](T a, T b) { return std::max(a, b); });
 }
 
 /** @brief computes the transpose
@@ -285,6 +325,16 @@ constexpr T trace(const matrix<T, M, M> &m) {
   return sum(generate<M>([&m](std::size_t i){ return m[i][i]; }));
 }
 
+/** @brief computes the elementwise square root
+ *  @param m an \f$ M \times M \f$ matrix of type T
+ *  @return an \f$ M \times N \f$ matrix of type T, the element wise
+ *  square root of \f$ \textbf{m} \f$
+ *  Computes the elementwise square root of a matrix.
+ */
+template <typename T, std::size_t N, std::size_t M>
+constexpr matrix<T, N, M> sqrt(const matrix<T, N, M> &v) {
+  return elementwise(static_cast<T (*)(T)>(sqrt), v);
+}
 /** }@*/
 
 } // namespace cotila

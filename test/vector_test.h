@@ -56,7 +56,7 @@ static_assert(max_index(vector{1, 2, 3}) == 2, "max_index");
 
 static_assert(iota<5>(0) == vector{0, 1, 2, 3, 4}, "iota");
 
-static_assert(iota<5, double>() == vector{0., 1., 2., 3., 4.}, "iota");
+static_assert(iota<5, 1, double>() == vector{0., 1., 2., 3., 4.}, "iota");
 
 static_assert(cast<double>(vector{0, 1, 2}) == vector{0., 1., 2.}, "cast");
 

@@ -19,6 +19,15 @@ template <typename T, T v> struct all_same_value<T, v> {
   static constexpr T value = v;
 };
 
+template<typename T>
+static auto test_callable(int)
+        -> decltype(void(std::declval<T>()(std::declval<std::size_t>())), std::true_type{});
+template<typename T>
+static auto test_callable(long) -> std::false_type;
+
+template<typename T>
+struct is_callable_with_a_size_t : decltype(detail::test_callable<T>(0)){};
+
 } // namespace detail
 } // namespace cotila
 

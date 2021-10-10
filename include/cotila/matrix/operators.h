@@ -21,7 +21,7 @@ constexpr bool operator==(const matrix<T, N, M> &a,
                           const matrix<T, N, M> &b) {
   for (std::size_t i = 0; i < N; ++i) {
     for (std::size_t j = 0; j < M; ++j) {
-      if (a[i][j] != b[i][j])
+      if (a.at(i, j) != b.at(i, j))
         return false;
     }
   }
