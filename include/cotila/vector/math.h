@@ -90,6 +90,18 @@ constexpr T dot(const vector<T, N> &a, const vector<T, N> &b) {
   return r;
 }
 
+/** @brief computes the dot product of a vector with himself
+ *  @param v an N-vector of type T
+ *  @return a scalar \f$ \textbf{v} \cdot \textbf{v} \f$ of type T such that
+ *  \f$ \left(\textbf{v}\cdot\textbf{v}\right)_i = v_i \overline{v_i} \f$
+ *
+ *  Computes the dot (inner) product of a vector with himself.
+ */
+template <typename T, std::size_t N>
+constexpr T dot2(const vector<T, N> &v) {
+  return dot(v, v);
+}
+
 /** @brief computes the sum of elements
  *  @param v an N-vector of type T
  *  @return a scalar \f$ \sum\limits_{i} v_i \f$ of type T
