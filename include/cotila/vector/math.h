@@ -92,8 +92,8 @@ constexpr T dot(const vector<T, N> &a, const vector<T, N> &b) {
 
 /** @brief computes the dot product of a vector with himself
  *  @param v an N-vector of type T
- *  @return a scalar \f$ \textbf{a} \cdot \textbf{b} \f$ of type T such that
- *  \f$ \left(\textbf{a}\cdot\textbf{b}\right)_i = a_i \overline{b_i} \f$
+ *  @return a scalar \f$ \textbf{v} \cdot \textbf{v} \f$ of type T such that
+ *  \f$ \left(\textbf{v}\cdot\textbf{v}\right)_i = v_i \overline{v_i} \f$
  *
  *  Computes the dot (inner) product of a vector with himself.
  */
