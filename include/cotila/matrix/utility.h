@@ -133,7 +133,8 @@ constexpr matrix<T, N, M> rotate(matrix<T, N, M> m, int n) {
   while (n < 0)
     n += N;
   for (std::size_t i = 0; i < N; ++i)
-    rotated[i] = m[(i + n) % N];
+    for (std::size_t j = 0; j < M; ++j)
+      rotated.at(i, j) = m.at((i + n) % N, j);
   return rotated;
 }
 
