@@ -54,6 +54,8 @@ static_assert(min_index(vector{1, 2, 3}) == 0, "min_index");
 
 static_assert(max_index(vector{1, 2, 3}) == 2, "max_index");
 
+static_assert(dot2(vector{1, 2, 3}) == 14, "dot2");
+
 static_assert(iota<5>(0) == vector{0, 1, 2, 3, 4}, "iota");
 
 static_assert(iota<5, double>() == vector{0., 1., 2., 3., 4.}, "iota");
