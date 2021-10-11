@@ -21,7 +21,7 @@ constexpr bool operator==(const matrix<T, N, M> &a,
                           const matrix<T, N, M> &b) {
   for (std::size_t i = 0; i < N; ++i) {
     for (std::size_t j = 0; j < M; ++j) {
-      if (a[i][j] != b[i][j])
+      if (a.at(i, j) != b.at(i, j))
         return false;
     }
   }
@@ -70,7 +70,7 @@ constexpr matrix<T, N, M> operator+(T a, const matrix<T, N, M> &m) {
  *  @param b an \f$ N \times M \f$ matrix of type T
  *  @return \f$ \textbf{a} + \textbf{b} \f$ such that \f$ \left(\textbf{a} + \textbf{b}\right)_{ij} = \textbf{a}_{ij} + \textbf{b}_{ij} \f$
  *
- *  Computes the vector sum.
+ *  Computes the matrix sum.
  */
 template <typename T, std::size_t N, std::size_t M>
 constexpr matrix<T, N, M> operator+(const matrix<T, N, M> &a,
@@ -83,7 +83,7 @@ constexpr matrix<T, N, M> operator+(const matrix<T, N, M> &a,
  *  @param a a scalar of type T
  *  @return \f$ \textbf{m}a \f$ such that \f$ \left(\textbf{m} a\right)_{ij} = \textbf{m}_{ij} a \f$
  *
- *  Computes the sum of a matrix and a scalar.
+ *  Computes the product of a matrix and a scalar.
  */
 template <typename T, std::size_t N, std::size_t M>
 constexpr matrix<T, N, M> operator*(const matrix<T, N, M> &m, T a) {
@@ -95,7 +95,7 @@ constexpr matrix<T, N, M> operator*(const matrix<T, N, M> &m, T a) {
  *  @param m an \f$ N \times M \f$ matrix of type T
  *  @return \f$ a\textbf{m} \f$ such that \f$ \left(a\textbf{m}\right)_{ij} = a\textbf{m}_{ij} \f$
  *
- *  Computes the sum of a matrix and a scalar.
+ *  Computes the product of a matrix and a scalar.
  */
 template <typename T, std::size_t N, std::size_t M>
 constexpr matrix<T, N, M> operator*(T a, const matrix<T, N, M> &m) {
@@ -107,7 +107,7 @@ constexpr matrix<T, N, M> operator*(T a, const matrix<T, N, M> &m) {
  *  @param b an \f$ N \times M \f$ matrix of type T
  *  @return \f$ \textbf{a} \circ \textbf{b} \f$ such that \f$ \left(\textbf{a} \circ \textbf{b}\right)_{ij} = \textbf{a}_{ij} \textbf{b}_{ij} \f$
  *
- *  Computes the Hadamard, or elementwise, product of two vectors.
+ *  Computes the Hadamard, or elementwise, product of two matrices.
  */
 template <typename T, std::size_t N, std::size_t M>
 constexpr matrix<T, N, M> operator*(const matrix<T, N, M> &a,

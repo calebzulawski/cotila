@@ -7,7 +7,6 @@
 #include <cotila/matrix/utility.h>
 #include <cotila/scalar/math.h>
 #include <cotila/vector/math.h>
-#include <cotila/vector/operators.h>
 #include <cotila/vector/utility.h>
 #include <cotila/vector/vector.h>
 
