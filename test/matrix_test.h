@@ -4,8 +4,7 @@
 #include <complex>
 #include <cotila/cotila.h>
 
-namespace cotila {
-namespace test {
+namespace cotila::test {
 
 // Uniform initialization
 constexpr matrix<double, 3, 3> m1 = {
@@ -41,6 +40,12 @@ static_assert(cast<float>(m1) ==
 
 static_assert(fill<2, 2>(3.) == matrix{{{3., 3.}, {3., 3.}}},
               "matrix fill");
+
+static_assert(rotate(m1, 1) == matrix<double, 3, 3> {4, 5, 6, 7, 8, 9, 1, 2, 3}, "rotate left");
+
+static_assert(rotate(m1, -1) == matrix<double, 3, 3> {7, 8, 9, 1, 2, 3, 4, 5, 6}, "rotate right");
+
+static_assert(rotate(m1, -1) == rotate(m1, 2), "rotate modulo");
 
 static_assert(transpose(m1) ==
                   matrix{{{1., 4., 7.},
@@ -143,7 +148,6 @@ static_assert(imag(m1c) == matrix{{{1., 0., 0.},
                                    {1., 0., 0.},
                                    {1., 0., 0.}}}, "imag");
 
-} // namespace test
 } // namespace cotila
 
 #endif // COTILA_MATRIX_TEST_H_
